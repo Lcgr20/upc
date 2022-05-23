@@ -1,4 +1,4 @@
-# FEEDCLAP API
+# DIVPAY API
 
 Plataforma de cambio de divisas donde permita a las personas cambiar sus dólares, euros y soles de manera online.
 
