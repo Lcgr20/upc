@@ -7,8 +7,11 @@ namespace DivPay.Entities;
 public class InvitationCode: EntityBase
 {
     public int NumInvitados { get; set; }
-
     public int UserId { get; set; }
+
+    [StringLength(10)]
+    [Required]
+    public string InviteCode { get; set; }
     public User User { get; set; }
 }
 

@@ -52,6 +52,7 @@ namespace DivPay.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumInvitados = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
+                    InviteCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

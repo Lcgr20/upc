@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DivPay.DataAccess.Migrations
 {
     [DbContext(typeof(DivPayDBContext))]
-    [Migration("20220527224631_InitialDatabase")]
+    [Migration("20220529193116_InitialDatabase")]
     partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,6 +96,11 @@ namespace DivPay.DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("InviteCode")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<int>("NumInvitados")
                         .HasColumnType("int");
