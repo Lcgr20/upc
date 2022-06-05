@@ -24,6 +24,11 @@ public class User: EntityBase
 
     public int Age { get; set; }
 
+    [StringLength(25)]
+    [Required]
+    public string Password { get; set; }
+
     public InvitationCode InvitationCode { get; set; }
 
+    public Coupon Coupon { get; set; }
 }

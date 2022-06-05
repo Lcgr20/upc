@@ -52,6 +52,7 @@ public class UserController: ControllerBase
             Dni = request.Dni,
             PhoneNumber = request.PhoneNumber,
             Age = request.Age,
+            Password = request.Password,    
             Status = true
         };
 
@@ -75,6 +76,7 @@ public class UserController: ControllerBase
         entity.Age = request.Age;
         entity.Dni = request.Dni;
         entity.PhoneNumber = request.PhoneNumber;
+        entity.Password = request.Password;
 
         _context.Entry(entity).State = EntityState.Modified;
         await _context.SaveChangesAsync();

@@ -23,5 +23,5 @@ public class DivPayDBContext: DbContext
     public DbSet<Transaction> Transactions { get; set; }
     public DbSet<ExchangeRate> ExchangeRates { get; set; }
     public DbSet<Notification> Notifications { get; set; }
-
+    public DbSet<Coupon> Coupons { get; set; }
 }

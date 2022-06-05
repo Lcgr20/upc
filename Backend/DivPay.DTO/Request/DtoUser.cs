@@ -19,5 +19,7 @@ public class DtoUser
     public int PhoneNumber { get; set; }
 
     public int Age { get; set; }
+
+    public string Password { get; set; }
 }
 
