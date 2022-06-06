@@ -47,6 +47,7 @@ public class BankAccountController : ControllerBase
         var entity = new BankAccount
         {
             Name = request.Name,
+            AccountNumber = request.AccountNumber,  
             Moneda = request.Moneda,
             TipoDeCuenta = request.TipoDeCuenta,
             UserId = request.UserId,
@@ -68,6 +69,7 @@ public class BankAccountController : ControllerBase
         if (entity == null) return NotFound();
 
         entity.Name = request.Name;
+        entity.AccountNumber = request.AccountNumber;
         entity.Moneda = request.Moneda;
         entity.TipoDeCuenta = request.TipoDeCuenta;
 

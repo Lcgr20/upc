@@ -14,6 +14,7 @@ public class ExchangeRate: EntityBase
     [Required]
     public string CurrencyB { get; set; }
 
+    [Required]
     public decimal ExchangeRateAB { get; set; }
 }
 

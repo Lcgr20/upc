@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DivPay.DataAccess.Migrations
 {
-    public partial class InitialDatabase : Migration
+    public partial class db : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,6 +37,7 @@ namespace DivPay.DataAccess.Migrations
                     Dni = table.Column<int>(type: "int", nullable: false),
                     PhoneNumber = table.Column<int>(type: "int", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -73,6 +74,7 @@ namespace DivPay.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    AccountNumber = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
                     Moneda = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     TipoDeCuenta = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
@@ -83,6 +85,53 @@ namespace DivPay.DataAccess.Migrations
                     table.PrimaryKey("PK_CuentasBancarias", x => x.Id);
                     table.ForeignKey(
                         name: "FK_CuentasBancarias_Usuarios_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cupones",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CouponCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Discount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cupones", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cupones_Usuarios_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Notificaciones",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    NotificationStatus = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NotificationType = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notificaciones", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Notificaciones_Usuarios_UserId",
                         column: x => x.UserId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
@@ -152,6 +201,17 @@ namespace DivPay.DataAccess.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Cupones_UserId",
+                table: "Cupones",
+                column: "UserId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Notificaciones_UserId",
+                table: "Notificaciones",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RegistrosdePago_UserId",
                 table: "RegistrosdePago",
                 column: "UserId");
@@ -175,6 +235,12 @@ namespace DivPay.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "CuentasBancarias");
+
+            migrationBuilder.DropTable(
+                name: "Cupones");
+
+            migrationBuilder.DropTable(
+                name: "Notificaciones");
 
             migrationBuilder.DropTable(
                 name: "Transacciones");

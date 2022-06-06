@@ -25,6 +25,7 @@ public class Notification : EntityBase
     [Required]
     public string NotificationType { get; set; }
 
+    [Required]
     public int UserId { get; set; }
     public User User { get; set; }
 }

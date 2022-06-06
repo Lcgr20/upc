@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DivPay.DataAccess.Migrations
 {
     [DbContext(typeof(DivPayDBContext))]
-    [Migration("20220604004727_database-divpay")]
-    partial class databasedivpay
+    [Migration("20220605235922_db")]
+    partial class db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,11 @@ namespace DivPay.DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AccountNumber")
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<string>("Moneda")
                         .IsRequired()
@@ -58,6 +63,36 @@ namespace DivPay.DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("CuentasBancarias");
+                });
+
+            modelBuilder.Entity("DivPay.Entities.Coupon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CouponCode")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Cupones");
                 });
 
             modelBuilder.Entity("DivPay.Entities.ExchangeRate", b =>
@@ -249,6 +284,11 @@ namespace DivPay.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("int");
 
@@ -270,6 +310,17 @@ namespace DivPay.DataAccess.Migrations
                     b.HasOne("DivPay.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DivPay.Entities.Coupon", b =>
+                {
+                    b.HasOne("DivPay.Entities.User", "User")
+                        .WithOne("Coupon")
+                        .HasForeignKey("DivPay.Entities.Coupon", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -336,6 +387,9 @@ namespace DivPay.DataAccess.Migrations
 
             modelBuilder.Entity("DivPay.Entities.User", b =>
                 {
+                    b.Navigation("Coupon")
+                        .IsRequired();
+
                     b.Navigation("InvitationCode")
                         .IsRequired();
                 });

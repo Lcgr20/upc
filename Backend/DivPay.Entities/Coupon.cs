@@ -11,8 +11,10 @@ public class Coupon : EntityBase
     [Required]
     public string CouponCode { get; set; }
 
+    [Required]
     public decimal Discount { get; set; }
 
+    [Required]
     public int UserId { get; set; }
 
     public User User { get; set; }

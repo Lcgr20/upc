@@ -11,6 +11,10 @@ public class BankAccount: EntityBase
     [Required]
     public string Name { get; set; }
 
+    [StringLength(14)]
+    [Required]
+    public string AccountNumber { get; set; }
+
     [StringLength(25)]
     [Required]
     public string Moneda { get; set; }
@@ -19,6 +23,7 @@ public class BankAccount: EntityBase
     [Required]
     public string TipoDeCuenta { get; set; }
 
+    [Required]
     public int UserId { get; set; }
     public User User { get; set; }
 }
