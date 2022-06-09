@@ -10,6 +10,7 @@ public class DtoBankAccount
 {
     public string Name { get; set; }
     public string AccountNumber { get; set; }
+    public string BankName { get; set; }
     public string Moneda { get; set; }
     public string TipoDeCuenta { get; set; }
     public int UserId { get; set; }

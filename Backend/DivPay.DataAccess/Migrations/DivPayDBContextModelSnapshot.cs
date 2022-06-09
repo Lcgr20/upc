@@ -35,6 +35,11 @@ namespace DivPay.DataAccess.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("nvarchar(14)");
 
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
                     b.Property<string>("Moneda")
                         .IsRequired()
                         .HasMaxLength(25)

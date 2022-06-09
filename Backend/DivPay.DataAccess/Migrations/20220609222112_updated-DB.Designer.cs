@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DivPay.DataAccess.Migrations
 {
     [DbContext(typeof(DivPayDBContext))]
-    [Migration("20220605235922_db")]
-    partial class db
+    [Migration("20220609222112_updated-DB")]
+    partial class updatedDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,11 @@ namespace DivPay.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(14)
                         .HasColumnType("nvarchar(14)");
+
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("Moneda")
                         .IsRequired()

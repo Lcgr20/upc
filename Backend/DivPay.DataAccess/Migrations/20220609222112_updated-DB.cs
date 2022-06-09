@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DivPay.DataAccess.Migrations
 {
-    public partial class db : Migration
+    public partial class updatedDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -75,6 +75,7 @@ namespace DivPay.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     AccountNumber = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
+                    BankName = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     Moneda = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     TipoDeCuenta = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
