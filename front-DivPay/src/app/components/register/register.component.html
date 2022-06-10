@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+ 
+    <div id="envoltura">
+        <div id="contenedor">
+ 
+            <div id="cuerpo">
+                <form id="form-login" action="" autocomplete="off">
+
+                    <p><label >Nombre Usuario:</label></p>
+                        <input type="text" id="username" placeholder="Ingresa un Nombre de Usuario" autofocus="" required maxlength="30"><p></p>
+
+					<p><label >Nombre Completo:</label></p>
+                        <input type="text" id="fullname" placeholder="Ingresa su Nombre Completo" autofocus="" required maxlength="50"><p></p>
+
+					<p><label >Email:</label></p>
+                        <input type="email" id="email" placeholder="Ingrese su Email" autofocus="" required  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"><p></p>
+					
+					<p><label >DNI:</label></p>
+                        <input type="number" id="dni" placeholder="Ingresa su DNI" autofocus="" required maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><p></p>
+
+					<p><label >Número de celular:</label></p>
+                        <input type="number" id="celular" placeholder="Ingresa su Numero de celular" autofocus="" required maxlength="9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><p></p>
+
+					<p><label >Edad:</label></p>
+                        <input type="number" id="edad" placeholder="Ingresa su edad" autofocus="" required maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><p></p>
+
+                    <p><label>Contraseña:</label></p>
+                        <input type="text" id="password" placeholder="Ingrese una contraseña" required maxlength="25"><p></p>
+						
+					<button (click)="create_user()">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+ 
+</html>

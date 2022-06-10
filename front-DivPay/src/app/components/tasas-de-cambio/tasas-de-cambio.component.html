@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+</head>
+    <p><label >Moneda1:</label></p>
+        <select name="moneda1" id="moneda1">
+            <option> Soles </option><option > Dolares </option><option > Euros </option>
+        </select><p></p>
+
+    <p><label >Moneda2:</label></p>
+        <select name="moneda2" id="moneda2">
+            <option> Dolares </option><option > Soles </option><option > Euros </option>
+        </select><p></p>
+
+    <div *ngIf="ratio_nosotros">{{ratio_nosotros}}</div>
+    <button (click)="viewtasadecambio()">Visualizar</button>
+</html>

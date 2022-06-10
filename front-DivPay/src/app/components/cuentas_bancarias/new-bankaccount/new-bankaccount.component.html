@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+</head>
+    <div>
+        <form id="form-bankaccount" action="" autocomplete="off">
+            <p><label >Tipo de cuenta:</label></p>
+            <select name="tipo de cuenta" id="tipo_de_cuenta">
+                <option> Ahorro </option>
+                <option> Corriente </option>
+            </select><p></p>
+
+            <p><label >Banco:</label></p>
+            <select name="banco" id="banco">
+                <option> BCP </option><option >Interbank</option><option >BBVA</option><option >Scotiabank</option>
+                <option> Pichincha </option><option >Falabella</option><option >Ripley</option>
+            </select><p></p>
+
+            <p><label >Moneda:</label></p>
+            <select name="moneda" id="moneda">
+                <option> Soles </option><option >Dolares</option><option >Euros</option>
+            </select><p></p>
+
+            <p><label >Número de cuenta:</label></p>
+                <input type="number" id="num_cuenta" placeholder="Escribe tu cuenta de destino" autofocus="" required maxlength="14" oninput="javascript: if (this.value.length > this.maxLength ) this.value = this.value.slice(0, this.maxLength);"><p></p>
+            
+            <p><label >Ponle nombre a tu cuenta:</label></p>
+                <input type="text" id="nombrecuenta" placeholder="Escribe un alias" autofocus="" required maxlength="40"><p></p>
+
+            <button (click)="create_bankaccount()">Guardar Cuenta</button>
+
+        </form>
+    </div>
+</html>
