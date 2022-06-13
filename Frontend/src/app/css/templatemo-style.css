@@ -130,7 +130,7 @@ button:focus { outline: none; }
 	list-style: none; 
 }
 
-.cd-hero-slider li:nth-of-type(1) { background-image: url(../img/tb3.PNG); }
+.cd-hero-slider li:nth-of-type(1) { }
 
 
 .tm-bg-white-translucent { background-color: rgba(255,255,255,0.8); }

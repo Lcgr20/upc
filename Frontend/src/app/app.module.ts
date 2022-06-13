@@ -15,6 +15,13 @@ import { ListBankaccountComponent } from './components/cuentas_bancarias/list-ba
 import { NewBankaccountComponent } from './components/cuentas_bancarias/new-bankaccount/new-bankaccount.component';
 import { EditBankaccountComponent } from './components/cuentas_bancarias/edit-bankaccount/edit-bankaccount.component';
 import { TasasDeCambioComponent } from './components/tasas-de-cambio/tasas-de-cambio.component';
+import { MatIconModule } from '@angular/material/icon';
+import { LayoutComponent } from './components/layout/layout.component';
+import { HistorialOperacionesComponent } from './components/historial-operaciones/historial-operaciones.component';
+import { VerBeneficiosComponent } from './components/beneficios/ver-beneficios/ver-beneficios.component';
+import { VerBarraDeProgresoComponent } from './components/beneficios/ver-barra-de-progreso/ver-barra-de-progreso.component';
+import { CentroAyudaComponent } from './components/centro-ayuda/centro-ayuda.component';
+import { NotificacionComponent } from './components/notificacion/notificacion.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,13 @@ import { TasasDeCambioComponent } from './components/tasas-de-cambio/tasas-de-ca
     ListBankaccountComponent,
     NewBankaccountComponent,
     EditBankaccountComponent,
-    TasasDeCambioComponent
+    TasasDeCambioComponent,
+    LayoutComponent,
+    HistorialOperacionesComponent,
+    VerBeneficiosComponent,
+    VerBarraDeProgresoComponent,
+    CentroAyudaComponent,
+    NotificacionComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +48,8 @@ import { TasasDeCambioComponent } from './components/tasas-de-cambio/tasas-de-ca
     MatCardModule,
     MatButtonModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

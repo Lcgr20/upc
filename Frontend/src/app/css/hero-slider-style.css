@@ -511,7 +511,7 @@ Slider navigation
   bottom: 0;
   z-index: 2;
   text-align: center;
-  height: 55px;
+  height: 1px;
   /*background-color: rgba(0, 1, 1, 0.5);*/
 }
 .cd-slider-nav nav, .cd-slider-nav ul, .cd-slider-nav li, .cd-slider-nav a {
@@ -569,7 +569,7 @@ Slider navigation
 }
 .cd-slider-nav li {
   display: inline-block;
-  width: 60px;
+  width: 10px;
   float: left;
 }
 .cd-slider-nav li.selected a {
