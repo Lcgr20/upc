@@ -6,9 +6,12 @@
 <body>
  
     <div id="envoltura">
+        <h1><b>LOG IN</b></h1>
         <div id="contenedor">
  
+            
             <div id="cuerpo">
+                
                 <form id="form-login" action="" autocomplete="off">
 
                     <p><label >Nombre Usuario:</label></p>
@@ -16,6 +19,8 @@
 
                     <p><label>Contraseña:</label></p>
                         <input type="text" id="password" placeholder="Ingrese una contrasenia" required><p></p><p></p>
+
+                    <a routerLink="/rec-contra">¿Olvidaste tu contraseña?</a>  <p></p><p></p>
 						
 					<button (click)="login()">Log in</button>
                 </form>

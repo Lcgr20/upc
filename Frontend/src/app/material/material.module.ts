@@ -18,7 +18,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatRippleModule } from '@angular/material/core';
 import {MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatPaginatorImpl } from './mat-paginator';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 @NgModule({
   exports: [
     MatSidenavModule,
@@ -38,6 +39,8 @@ import { MatPaginatorImpl } from './mat-paginator';
     MatProgressSpinnerModule,
     MatRippleModule,
     MatPaginatorModule,
+    MatTabsModule,
+    MatButtonToggleModule
   ],
   providers: [{provide: MatPaginatorIntl, useClass: MatPaginatorImpl}]
 })

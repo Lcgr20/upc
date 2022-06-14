@@ -22,6 +22,8 @@ import { VerBeneficiosComponent } from './components/beneficios/ver-beneficios/v
 import { VerBarraDeProgresoComponent } from './components/beneficios/ver-barra-de-progreso/ver-barra-de-progreso.component';
 import { CentroAyudaComponent } from './components/centro-ayuda/centro-ayuda.component';
 import { NotificacionComponent } from './components/notificacion/notificacion.component';
+import { RecuperarContraComponent } from './components/recuperar-contra/recuperar-contra.component';
+import { MatButtonToggleGroupHarness } from '@angular/material/button-toggle/testing';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { NotificacionComponent } from './components/notificacion/notificacion.co
     VerBeneficiosComponent,
     VerBarraDeProgresoComponent,
     CentroAyudaComponent,
-    NotificacionComponent
+    NotificacionComponent,
+    RecuperarContraComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { NotificacionComponent } from './components/notificacion/notificacion.co
     MatButtonModule,
     MaterialModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

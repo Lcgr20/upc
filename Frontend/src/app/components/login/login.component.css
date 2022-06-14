@@ -1,5 +1,6 @@
 body{
-  background:#cc9;
+  background:url("src\assets\fondo login.jpg");
+  background-size: 100% auto;
   font-family:Arial, Helvetica, sans-serif;
   font-size:12px;
   margin: 0;
@@ -41,7 +42,7 @@ input{
   height: 24px;
   line-height: 20px;
   padding:0 2px;
-  width: 230px;
+  width: 255px;
 }
 
 form,p{
@@ -50,4 +51,15 @@ form,p{
 
 p{
   padding-bottom: 5px;
+}
+
+#envoltura h1 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

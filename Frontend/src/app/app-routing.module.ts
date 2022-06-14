@@ -11,6 +11,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotificacionComponent } from './components/notificacion/notificacion.component';
 import { ViewProfileComponent } from './components/profile/view-profile/view-profile.component';
+import { RecuperarContraComponent } from './components/recuperar-contra/recuperar-contra.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TasasDeCambioComponent } from './components/tasas-de-cambio/tasas-de-cambio.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
     { path:'profile',component:ViewProfileComponent},
     { path:'register',component:RegisterComponent},
     { path:'login',component:LoginComponent},
+    { path:'rec-contra',component:RecuperarContraComponent},
     { path:'BankAccount',component:ListBankaccountComponent},
     { path:'BankAccount/new',component:NewBankaccountComponent},
     { path:'tasasDeCambio',component:TasasDeCambioComponent},
