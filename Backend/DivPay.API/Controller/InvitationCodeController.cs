@@ -38,6 +38,12 @@ public class InvitationCodeController : ControllerBase
         return Ok(invitationCode);
     }
 
+    [HttpGet("InvitationFromUser/{id:int}")]
+    public async Task<ActionResult<InvitationCode>> GetInvitationFromUser(int id)
+    {
+        return await _invitationCodeService.GetInvitationCodeFromUser(id);
+    }
+
     [HttpPost]
     public async Task<ActionResult> Post(DtoInvitationCode request)
     {

@@ -9,4 +9,5 @@ public interface INotificationService
     Task DeleteNotification(Notification notification);
     Task<Notification> GetNotification(int id);
     Task<List<Notification>> GetNotifications();
+    Task<List<Notification>> GetNotificationsFromUser(int id);
 }

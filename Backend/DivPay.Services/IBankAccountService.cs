@@ -14,5 +14,6 @@ public interface IBankAccountService
     Task DeleteBankAccount(BankAccount bankAccount);
     Task<BankAccount> GetBankAccount(int id);
     Task<List<BankAccount>> GetBankAccounts();
+    Task<List<BankAccount>> GetBankAccountsFromUser(int id);
     Task UpdateBankAccount(int id, DtoBankAccount bankAccount);
 }

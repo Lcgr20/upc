@@ -26,7 +26,7 @@ public class BankAccountController : ControllerBase
         return await _bankAccountService.GetBankAccounts();
     }
 
-    [HttpGet("{id:int}", Name = "GetBankAccount")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<BankAccount>> Get(int id)
     {
         var bankAccount = await _bankAccountService.GetBankAccount(id);
@@ -38,6 +38,12 @@ public class BankAccountController : ControllerBase
         return Ok(bankAccount);
     }
 
+    [HttpGet("BankAccountsFromUser/{id:int}")]
+    public async Task<ActionResult<IEnumerable<BankAccount>>> GetBankAccountsFromUser(int id)
+    {
+        return await _bankAccountService.GetBankAccountsFromUser(id);
+    }
+
     [HttpPost]
     public async Task<ActionResult> Post(DtoBankAccount request)
     {
@@ -45,7 +51,7 @@ public class BankAccountController : ControllerBase
         return Ok();
     }
 
-    [HttpDelete]
+    [HttpDelete("{id:int}")]
     public async Task<ActionResult<BankAccount>> Delete(int id)
     {
         var bankAccount = await _bankAccountService.GetBankAccount(id);

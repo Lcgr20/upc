@@ -39,6 +39,12 @@ public class PaymentRecordController : ControllerBase
         return Ok(paymentRecord);
     }
 
+    [HttpGet("PaymentRecordsFromUser/{id:int}")]
+    public async Task<ActionResult<IEnumerable<PaymentRecord>>> GetPaymentRecordsFromUser(int id)
+    {
+        return await _paymentRecordService.GetPaymentRecordsFromUser(id);
+    }
+
     [HttpPost]
     public async Task<ActionResult> Post(DtoPaymentRecord request)
     {

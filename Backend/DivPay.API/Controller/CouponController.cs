@@ -38,6 +38,12 @@ public class CouponController : ControllerBase
         return Ok(coupon);
     }
 
+    [HttpGet("CouponFromUser/{id:int}")]
+    public async Task<ActionResult<Coupon>> GetCouponFromUser(int id)
+    {
+        return await _couponService.GetCouponFromUser(id);
+    }
+
     [HttpPost]
     public async Task<ActionResult> Post(DtoCoupon request)
     {

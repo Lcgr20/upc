@@ -38,4 +38,9 @@ public class PaymentRecordService:IPaymentRecordService
     {
         return await _context.PaymentRecords.ToListAsync();
     }
+
+    public async Task<List<PaymentRecord>> GetPaymentRecordsFromUser(int id)
+    {
+        return await _context.PaymentRecords.Where(p => p.UserId == id).ToListAsync();
+    }
 }

@@ -45,4 +45,8 @@ public class CouponService:ICouponService
         return await _context.Coupons.ToListAsync();
     }
 
+    public async Task<Coupon> GetCouponFromUser(int id)
+    {
+        return await _context.Coupons.Where(c => c.UserId == id).FirstOrDefaultAsync();
+    }
 }

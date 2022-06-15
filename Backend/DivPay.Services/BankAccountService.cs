@@ -53,6 +53,11 @@ public class BankAccountService:IBankAccountService
         return await _context.BankAccounts.ToListAsync();
     }
 
+    public async Task<List<BankAccount>> GetBankAccountsFromUser(int id)
+    {
+        return await _context.BankAccounts.Where(b => b.UserId == id).ToListAsync();
+    }
+
     public async Task UpdateBankAccount(int id, DtoBankAccount bankAccount)
     {
         var entity = await _context.BankAccounts.FindAsync(id);

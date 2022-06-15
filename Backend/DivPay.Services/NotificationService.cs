@@ -47,4 +47,9 @@ public class NotificationService:INotificationService
     {
         return await _context.Notifications.ToListAsync();
     }
+
+    public async Task<List<Notification>> GetNotificationsFromUser(int id)
+    {
+        return await _context.Notifications.Where(n => n.UserId == id).ToListAsync();
+    }
 }

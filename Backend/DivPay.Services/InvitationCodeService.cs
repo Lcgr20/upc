@@ -34,6 +34,11 @@ public class InvitationCodeService:IInvitationCodeService
         return await _context.InvitationCodes.Where(i => i.Id == id).FirstOrDefaultAsync();
     }
 
+    public async Task<InvitationCode> GetInvitationCodeFromUser(int id)
+    {
+        return await _context.InvitationCodes.Where(i => i.UserId == id).FirstOrDefaultAsync();
+    }
+
     public async Task<List<InvitationCode>> GetInvitationCodes()
     {
         return await _context.InvitationCodes.ToListAsync();

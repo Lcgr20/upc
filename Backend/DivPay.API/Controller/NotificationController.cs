@@ -39,6 +39,12 @@ public class NotificationController : ControllerBase
         return Ok(notification);
     }
 
+    [HttpGet("NotificationsFromUser/{id:int}")]
+    public async Task<ActionResult<IEnumerable<Notification>>> GetNotificationsFromUser(int id)
+    {
+        return await _notificationService.GetNotificationsFromUser(id);
+    }
+
     [HttpPost]
     public async Task<ActionResult> Post(DtoNotification request)
     {
@@ -46,7 +52,7 @@ public class NotificationController : ControllerBase
         return Ok();
     }
 
-    [HttpDelete]
+    [HttpDelete("{id:int}")]
     public async Task<ActionResult<Notification>> Delete(int id)
     {
         var notification = await _notificationService.GetNotification(id);
