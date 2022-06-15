@@ -1,4 +1,5 @@
 using DivPay.DataAccess;
+using DivPay.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,20 +9,21 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
 
+builder.Services.AddScoped<IUserService, UserService>();
+
 builder.Services.AddDbContext<DivPayDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
-builder.Services.AddCors(options =>
+/*builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
                           policy.WithOrigins("http://localhost:4200/User");
                       });
-});
-
+});*/
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

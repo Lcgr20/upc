@@ -1876,23 +1876,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Sergio\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.DataAccess\\DivPay.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.DataAccess\\DivPay.DataAccess.csproj",
       "projectName": "DivPay.DataAccess",
-      "projectPath": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.DataAccess\\DivPay.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.DataAccess\\DivPay.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\Sergio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1906,8 +1902,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.Entities\\DivPay.Entities.csproj": {
-              "projectPath": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.Entities\\DivPay.Entities.csproj"
+            "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.Entities\\DivPay.Entities.csproj": {
+              "projectPath": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.Entities\\DivPay.Entities.csproj"
             }
           }
         }
