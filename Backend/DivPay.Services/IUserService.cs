@@ -1,7 +1,6 @@
 ﻿using DivPay.DTO.Request;
 using DivPay.Entities;
 
-
 namespace DivPay.Services
 {
     public interface IUserService
