@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CentroAyudaComponent implements OnInit {
 
+  panelOpenState = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
+
+
