@@ -24,6 +24,7 @@ import { CentroAyudaComponent } from './components/centro-ayuda/centro-ayuda.com
 import { NotificacionComponent } from './components/notificacion/notificacion.component';
 import { RecuperarContraComponent } from './components/recuperar-contra/recuperar-contra.component';
 import { MatButtonToggleGroupHarness } from '@angular/material/button-toggle/testing';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MatButtonToggleGroupHarness } from '@angular/material/button-toggle/tes
     MaterialModule,
     BrowserAnimationsModule,
     MatIconModule,
+    ToastrModule.forRoot(),
     
   ],
   providers: [],

@@ -4,7 +4,7 @@ export class BankAccount {
     name?: string;
     bankName?: string;
     accountNumber?: string;
-    moneda?: number;
-    tipoDeCuenta?:number;
+    moneda?: string;
+    tipoDeCuenta?:string;
     UserId?:number;
 }

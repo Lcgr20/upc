@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { VerBarraDeProgresoComponent } from './components/beneficios/ver-barra-de-progreso/ver-barra-de-progreso.component';
 import { VerBeneficiosComponent } from './components/beneficios/ver-beneficios/ver-beneficios.component';
 import { CentroAyudaComponent } from './components/centro-ayuda/centro-ayuda.component';
+import { EditBankaccountComponent } from './components/cuentas_bancarias/edit-bankaccount/edit-bankaccount.component';
 import { ListBankaccountComponent } from './components/cuentas_bancarias/list-bankaccount/list-bankaccount.component';
 import { NewBankaccountComponent } from './components/cuentas_bancarias/new-bankaccount/new-bankaccount.component';
 import { HistorialOperacionesComponent } from './components/historial-operaciones/historial-operaciones.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path:'rec-contra',component:RecuperarContraComponent},
     { path:'BankAccount',component:ListBankaccountComponent},
     { path:'BankAccount/new',component:NewBankaccountComponent},
+    { path:'BankAccount/edit',component:EditBankaccountComponent},
     { path:'tasasDeCambio',component:TasasDeCambioComponent},
     { path:'historial',component:HistorialOperacionesComponent},
     { path:'beneficios',component:VerBeneficiosComponent},
