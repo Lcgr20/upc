@@ -4,6 +4,7 @@ using DivPay.DTO.Response;
 using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
 using DivPay.DTO.Request;
+using DivPay.Services;
 
 namespace DivPay.API.Controller;
 
@@ -12,66 +13,47 @@ namespace DivPay.API.Controller;
 
 public class CouponController : ControllerBase
 {
-    private readonly DivPayDBContext _context;
+    private readonly ICouponService _couponService;
 
-    public CouponController(DivPayDBContext context)
+    public CouponController(ICouponService couponService)
     {
-        _context = context;
+        this._couponService = couponService;
     }
 
     [HttpGet]
-    public async Task<ActionResult<ICollection<Coupon>>> Get()
+    public async Task<ActionResult<IEnumerable<Coupon>>> Get()
     {
-        ICollection<Coupon> response;
-
-        response = await _context.Coupons.ToListAsync();
-
-        return Ok(response);
+        return await _couponService.GetCoupons(); ;
     }
 
-    [HttpGet("{id:int}")]
+    [HttpGet("{id:int}", Name ="GetCoupon")]
     public async Task<ActionResult<Coupon>> Get(int id)
     {
-        var entity = await _context.Coupons.FindAsync(id);
-        if (entity == null)
+        var coupon = await _couponService.GetCoupon(id);
+
+        if (coupon == null)
         {
-            return NotFound("No se encontró ningún resultado");
+            return NotFound();
         }
-        return Ok(entity);
+        return Ok(coupon);
     }
 
     [HttpPost]
     public async Task<ActionResult> Post(DtoCoupon request)
     {
-        var entity = new Coupon
-        {
-            CouponCode = request.CouponCode,
-            Discount = request.Discount,
-            UserId = request.UserId,
-            Status = true
-        };
-
-        _context.Coupons.Add(entity);
-        await _context.SaveChangesAsync();
-
-        HttpContext.Response.Headers.Add("location", $"/api/coupon/{entity.Id}");
+        await _couponService.CreateCoupon(request);
         return Ok();
     }
 
     [HttpDelete("{id:int}")]
     public async Task<ActionResult<Coupon>> Delete(int id)
     {
-        try
+        var coupon = await _couponService.GetCoupon(id);
+        if (coupon == null)
         {
-            var entityToDelete = await _context.Coupons.FindAsync(id);
-            if (entityToDelete == null) return NotFound();
-            _context.Coupons.Remove(entityToDelete);
-            await _context.SaveChangesAsync();
-            return Ok();
+            return NotFound();
         }
-        catch (Exception)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data");
-        }
+        await _couponService.DeleteCoupon(coupon);
+        return NoContent();
     }
 }

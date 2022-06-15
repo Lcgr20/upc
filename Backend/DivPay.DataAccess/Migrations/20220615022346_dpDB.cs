@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DivPay.DataAccess.Migrations
 {
-    public partial class updatedDB : Migration
+    public partial class dpDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

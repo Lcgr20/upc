@@ -402,3 +402,5 @@ C:\Users\Sergio\Desktop\backend probar\Backend\DivPay.API\obj\Debug\net6.0\DivPa
 C:\Users\Sergio\Desktop\backend probar\Backend\DivPay.API\obj\Debug\net6.0\ref\DivPay.API.dll
 C:\Users\Sergio\Desktop\backend probar\Backend\DivPay.API\bin\Debug\net6.0\DivPay.Services.dll
 C:\Users\Sergio\Desktop\backend probar\Backend\DivPay.API\bin\Debug\net6.0\DivPay.Services.pdb
+C:\Users\User\Documents\DivPay\Backend\DivPay.API\bin\Debug\net6.0\DivPay.Services.dll
+C:\Users\User\Documents\DivPay\Backend\DivPay.API\bin\Debug\net6.0\DivPay.Services.pdb

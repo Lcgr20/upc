@@ -4,6 +4,8 @@ using DivPay.DTO.Response;
 using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
 using DivPay.DTO.Request;
+using DivPay.Services;
+
 
 namespace DivPay.API.Controller;
 
@@ -12,40 +14,35 @@ namespace DivPay.API.Controller;
 
 public class ExchangeRateController : ControllerBase
 {
-    private readonly DivPayDBContext _context;
+    private readonly IExchangeRateService _exchangeRateService;
 
-    public ExchangeRateController(DivPayDBContext context)
+    public ExchangeRateController(IExchangeRateService exchangeRateService)
     {
-        _context = context;
+        _exchangeRateService = exchangeRateService;
     }
 
     [HttpGet]
-    public async Task<ActionResult<ICollection<ExchangeRate>>> Get()
+    public async Task<ActionResult<IEnumerable<ExchangeRate>>> Get()
     {
-        ICollection<ExchangeRate> response;
+        return await _exchangeRateService.GetExchangeRates();
+    }
 
-        response = await _context.ExchangeRates.ToListAsync();
+    [HttpGet("{id}", Name = "GetExchangeRate")]
+    public async Task<ActionResult<User>> Get(int id)
+    {
+        var exchangeRate = await _exchangeRateService.GetExchangeRate(id);
 
-
-        return Ok(response);
-
+        if (exchangeRate == null)
+        {
+            return NotFound();
+        }
+        return Ok(exchangeRate);
     }
 
     [HttpPost]
     public async Task<ActionResult> Post(DtoExchangeRate request)
     {
-        var entity = new ExchangeRate
-        {
-            CurrencyA = request.CurrencyA,
-            CurrencyB = request.CurrencyB,
-            ExchangeRateAB = request.ExchangeRateAB,
-            Status = true
-        };
-
-        _context.ExchangeRates.Add(entity);
-        await _context.SaveChangesAsync();
-
-        HttpContext.Response.Headers.Add("location", $"/api/exchangeRate/{entity.Id}");
+        await _exchangeRateService.CreateExchangeRate(request);
         return Ok();
     }
 }

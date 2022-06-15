@@ -2,11 +2,7 @@
 using DivPay.DTO.Request;
 using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DivPay.Services
 {
@@ -53,7 +49,6 @@ namespace DivPay.Services
         {
             return await _context.Users.ToListAsync();
         }
-
 
         public async Task UpdateUser(int id,DtoUser request)
         {

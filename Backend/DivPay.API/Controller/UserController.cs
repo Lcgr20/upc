@@ -14,9 +14,9 @@ public class UserController: ControllerBase
 {
     private readonly IUserService _userService;
 
-    public UserController(IUserService userservice)
+    public UserController(IUserService userService)
     {
-        this._userService = userservice;
+        this._userService = userService;
     }
     
     [HttpGet]
@@ -25,7 +25,7 @@ public class UserController: ControllerBase
         return await _userService.GetUsers();
     }
 
-    [HttpGet("{id}", Name ="GetUser")]
+    [HttpGet("{id}", Name = "GetUser")]
     public async Task<ActionResult<User>> Get(int id)
     {
         var user = await _userService.GetUser(id);
@@ -57,9 +57,8 @@ public class UserController: ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<User>> Put(int id,DtoUser request)
+    public async Task<ActionResult<User>> Put(int id, DtoUser request)
     {
-
         await _userService.UpdateUser(id, request);
         return NoContent();
     }

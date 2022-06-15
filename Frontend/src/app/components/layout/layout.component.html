@@ -19,9 +19,9 @@
     <button mat-button routerLink="/ayuda" class="ms-2">Ayuda</button>
     
   
-    <button mat-button routerLink="/notificacion" matBadge="2">
+    <div class="notifications" routerLink="/notificacion" matBadge="2">
         <mat-icon>notifications</mat-icon>
-    </button>
+    </div>
 
     <div *ngIf="username == ''">
         <button routerLink="/login">Iniciar sesión</button>
