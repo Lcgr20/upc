@@ -3,16 +3,57 @@
 <head>
     <meta charset="utf-8">
 </head>
-    <p><label >Moneda1:</label></p>
-        <select name="moneda1" id="moneda1">
-            <option> Soles </option><option > Dolares </option><option > Euros </option>
-        </select><p></p>
+<body>
+    
+    <h1>Cambia <strong id="letra-resal">dólares, soles y euros</strong> online con el <br><p></p> mejor tipo de cambio</h1>
+    <div *ngIf="ratio_nosotros!=null">
+      <p class="eeee"><b>TASA DE CAMBIO {{moneda1}}/{{moneda2}}</b></p>
+      <p class="iiii"><b>{{ratio_nosotros}}</b></p>
+    </div>
+    
+    <p class="aaaa"><b>ENVIAS</b></p>
+    <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c15-1">{{moneda1}}
+        <img mat-card-image id="img1" src="">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="moned1_sol()">
+          <span>Soles</span>
+        </button>
+        <button mat-menu-item (click)="moned1_dol()">
+          <span>Dolares</span>
+        </button>
+        <button mat-menu-item (click)="moned1_eur()">
+          <span>Euros</span>
+        </button>
+      </mat-menu>
+      <input type="number" id="mon1-cantidad" placeholder="" autofocus="" required maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><p></p>
+    </div>
 
-    <p><label >Moneda2:</label></p>
-        <select name="moneda2" id="moneda2">
-            <option> Dolares </option><option > Soles </option><option > Euros </option>
-        </select><p></p>
+    <mat-icon class="icontransfer">autorenew</mat-icon>
+    <br><br><br>
 
-    <div *ngIf="ratio_nosotros">{{ratio_nosotros}}</div>
-    <button (click)="viewtasadecambio()">Visualizar</button>
+    <p class="aaaa"><b>RECIBES</b></p>
+    <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c15-1">{{moneda2}}
+      <img mat-card-image id="img2" src="">
+      <button mat-icon-button [matMenuTriggerFor]="menuu" aria-label="Example icon-button with a menu">
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menuu="matMenu">
+      <button mat-menu-item (click)="moned2_sol()">
+        <span>Soles</span>
+      </button>
+      <button mat-menu-item (click)="moned2_dol()">
+        <span>Dolares</span>
+      </button>
+      <button mat-menu-item (click)="moned2_eur()">
+        <span>Euros</span>
+      </button>
+    </mat-menu>
+    <input type="number" class="sinborde" id="resultadomoneda" readonly>
+    </div>
+
+    <button mat-raised-button class="centrado" (click)="viewtasadecambio()">Visualizar</button>
+</body>
 </html>

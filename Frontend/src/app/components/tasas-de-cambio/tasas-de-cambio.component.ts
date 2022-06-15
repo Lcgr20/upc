@@ -14,44 +14,67 @@ export class TasasDeCambioComponent implements OnInit {
   ratio_nosotros!:number;
   moneda1!:any;
   moneda2!:any;
-  moneda1_!:string;
-  moneda2_!:string;
+  linksoles!:string;
+  linkdolares!:string;
+  linkeuros!:string;
+  img1!:any;
+  img2!:any;
+  mon1_cantidad!:any;
+  mon2_cantidad!:any;
 
   constructor(private tasadecambioService: TasasDeCambioService, private router: Router) { }
 
   ngOnInit(): void {
+    this.moneda1="PEN";
+    this.moneda2="USD";
+    this.linksoles="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/300px-Flag_of_Peru.svg.png";
+    this.linkdolares="https://s1.significados.com/foto/american-flag-1311743-180_sm.png";
+    this.linkeuros="https://c1.staticflickr.com/3/2879/33663947906_e78ae51937.jpg";
+    this.img1=document.getElementById("img1");
+    this.img1.src=this.linksoles;
+    this.img2=document.getElementById("img2");
+    this.img2.src=this.linkdolares;
+  }
+
+  moned1_sol(){
+    if(this.moneda2=="PEN"){}
+    else{this.moneda1="PEN";this.img1.src=this.linksoles;}
+  }
+  moned1_dol(){
+    if(this.moneda2=="USD"){}
+    else{this.moneda1="USD";this.img1.src=this.linkdolares;}
+  }
+  moned1_eur(){
+    if(this.moneda2=="EUR"){}
+    else{this.moneda1="EUR";this.img1.src=this.linkeuros;}
+  }
+
+  moned2_sol(){
+    if(this.moneda1=="PEN"){}
+    else{this.moneda2="PEN";this.img2.src=this.linksoles;}
+  }
+  moned2_dol(){
+    if(this.moneda1=="USD"){}
+    else{this.moneda2="USD";this.img2.src=this.linkdolares;}
+  }
+  moned2_eur(){
+    if(this.moneda1=="EUR"){}
+    else{this.moneda2="EUR";this.img2.src=this.linkeuros;}
   }
 
   async viewtasadecambio(){
 
-    this.moneda1=document.getElementById("moneda2");
-    this.moneda2=document.getElementById("moneda1");
+    await this.tasadecambioService.obtenertasadecambio(this.moneda2,this.moneda1).then(data => 
+      {this.rateee = data;}
+    );
 
-    if(this.moneda1.value==this.moneda2.value){
-      alert("No elegir el mismo tipo de moneda");
-    }
-    else{
+    this.ratio_nosotros=Number(this.rateee.info?.rate)*98/100;
 
-      this.moneda1_=this.moneda1.value;
-      this.moneda2_=this.moneda2.value;
-      
-      if(this.moneda1_=="Soles"){this.moneda1_="PEN"};
-      if(this.moneda1_=="Dolares"){this.moneda1_="USD"};
-      if(this.moneda1_=="Euros"){this.moneda1_="EUR"};
 
-      if(this.moneda2_=="Soles"){this.moneda2_="PEN"};
-      if(this.moneda2_=="Dolares"){this.moneda2_="USD"};
-      if(this.moneda2_=="Euros"){this.moneda2_="EUR"};
-        
-      //"PEN","USD" 1USD->3.75
-      await this.tasadecambioService.obtenertasadecambio(this.moneda1_,this.moneda2_).then(data => 
-        {this.rateee = data;}
-        );
-
-      this.ratio_nosotros=Number(this.rateee.info?.rate)*98/100;
-
-    }
-    
+    this.mon1_cantidad=document.getElementById("mon1-cantidad");
+    var valor=this.mon1_cantidad.value;
+    this.mon2_cantidad=document.getElementById("resultadomoneda");
+    this.mon2_cantidad.value=valor*this.ratio_nosotros;
   }
 
 }
