@@ -1,1 +1,75 @@
-<p>edit-bankaccount works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,100;1,300;1,400&family=Nanum+Gothic:wght@400;700;800&family=Open+Sans:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="editpage">    
+    </section>
+    <div id="envoltura" class= "accountdata">
+        <h1><b>Editar Cuenta</b></h1>
+                <form id="form-bankaccount" action="" autocomplete="off">
+                    <div class="acctype">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="expansion-button" type="button">
+                            <mat-icon>keyboard_arrow_down</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item (click)="ahorro_option()"><span>Ahorro</span></button>
+                          <button mat-menu-item (click)="corriente_option()"><span>Corriente</span></button>
+                        </mat-menu>
+                        <p><label >Tipo de cuenta:</label></p>
+                        <input type="text" id="tipo_de_cuenta" autofocus="" required maxlength="40"><p></p>
+                    </div>
+                    
+                    <div class="bank">
+                        <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu" class="expansion-button2" type="button">
+                            <mat-icon>keyboard_arrow_down</mat-icon>
+                        </button>
+                        <mat-menu #menu2="matMenu">
+                          <button mat-menu-item (click)="bcp_option()"><span>BCP</span></button>
+                          <button mat-menu-item (click)="interbank_option()"><span>Interbank</span></button>
+                          <button mat-menu-item (click)="bbva_option()"><span>BBVA</span></button>
+                          <button mat-menu-item (click)="scotiabank_option()"><span>Scotiabank</span></button>
+                          <button mat-menu-item (click)="pichincha_option()"><span>Pichincha</span></button>
+                          <button mat-menu-item (click)="falabella_option()"><span>Falabella</span></button>
+                          <button mat-menu-item (click)="ripley_option()"><span>Ripley</span></button>
+                        </mat-menu>
+                        <p><label >Banco:</label></p>
+                        <input type="text" id="banco" autofocus="" required maxlength="40"><p></p>
+                    </div>
+                    
+                    <div class="curr">
+                        <button mat-icon-button [matMenuTriggerFor]="menu3" aria-label="Example icon-button with a menu" class="expansion-button3" type="button">
+                            <mat-icon>keyboard_arrow_down</mat-icon>
+                        </button>
+                        <mat-menu #menu3="matMenu">
+                          <button mat-menu-item (click)="usd_option()"><span>Dólares</span></button>
+                          <button mat-menu-item (click)="pen_option()"><span>Soles</span></button>
+                          <button mat-menu-item (click)="eur_option()"><span>Euros</span></button>
+                        </mat-menu>
+                        <p><label >Moneda:</label></p>
+                        <input type="text" id="moneda" autofocus="" required maxlength="40"><p></p>
+                    </div>
+                    
+                    <div class="accnumber">
+                        <p><label >Número de cuenta:</label></p>
+                        <input type="number" id="num_cuenta" autofocus="" required maxlength="14" oninput="javascript: if (this.value.length > this.maxLength ) this.value = this.value.slice(0, this.maxLength);"><p></p>
+                    </div>
+                    
+                    <div class="accname">
+                        <p><label >Ponle nombre a tu cuenta:</label></p>
+                        <input type="text" id="nombrecuenta" autofocus="" required maxlength="40"><p></p>
+                    </div>
+                    
+                    <button class="save-button"mat-raised-button (click)="edit_bankaccount()" type="button">Guardar Cambios</button>
+        
+                </form>
+
+    </div>
+    
+</body>
+ 
+</html>

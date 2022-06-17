@@ -14,6 +14,10 @@ export class BankaccountService {
 
   constructor(private http:HttpClient) { }
 
+  getbankaccount(id:number){
+    return this.http.get<BankAccount>(`${this.baseUrl}/BankAccount/${id}`)
+  }
+
   getbankaccounts(id_user:number){
     return this.http.get<BankAccount[]>(`${this.baseUrl}/BankAccount/BankAccountsFromUser/${id_user}`);
   }

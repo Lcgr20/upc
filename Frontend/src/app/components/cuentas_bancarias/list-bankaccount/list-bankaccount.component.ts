@@ -46,16 +46,4 @@ export class ListBankaccountComponent implements OnInit {
       })
     }
   }
-  editar(id: number){
-    let banknew = new BankAccount();
-    banknew.accountNumber="sadasdasf";
-    banknew.bankName="asvbnbdvavdbf";
-    banknew.moneda="savbsvdb";
-    banknew.name="sadvsdsnb";
-    banknew.tipoDeCuenta="savdadscdf";
-    this.bankaccountservice.updatebankaccount(id,banknew).subscribe(()=>{
-      this.getbankacoounts(this.id_user);
-    })
-  }
-
 }

@@ -1,16 +1,29 @@
+*{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.beneficios-page{
+    min-height: 100%;
+    width: 100%;
+    background-image: url("src\assets\background.png");
+    background-position: top;
+    background-size: cover;
+    position: relative;
+}
+
 h1{
-    color: rgb(46, 29, 229);
+    color: #704ca7;
     text-align: center;
     padding-top:15px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 60px;
     padding-top: 50px;
 }
 p{
-    color: rgb(0, 255, 21);
+    color: rgb(248, 147, 6);
     text-align: center;
     padding-top:30px;
-    font-size: 20px;
+    font-size: 25px;
 }
 p.centrado {
     position: center;
@@ -20,4 +33,5 @@ button.centrado {
     margin-left: 50%;
     margin-top: 2%;
     transform: translateX(-50%);
+    font-size: 20px;
 }

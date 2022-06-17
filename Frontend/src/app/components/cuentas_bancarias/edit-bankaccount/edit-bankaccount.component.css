@@ -1,0 +1,74 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.accname, .accnumber, .curr, .bank,
+.acctype {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+}
+
+.editpage {
+  min-height: 100%;
+  width: 100%;
+  background-image: url("src\assets\background.png");
+  background-position: top;
+  background-size: cover;
+  position: relative;
+}
+
+.accountdata {
+  width: 70%;
+  position: absolute;
+  padding-left: 29%;
+  top: 15%;
+  left: 40%;
+  transform: translate(-40%, 0%);
+}
+
+.accountdata h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 40px;
+  color: #704ca7;
+}
+
+.accountdata label{
+  color: #fff;
+}
+
+.expansion-button {
+  box-shadow: 0 5px 15px #bbc3d666;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 350px;
+  position: absolute;
+  left: 58%;
+  top: 16%;
+}
+
+.expansion-button2 {
+  box-shadow: 0 5px 15px #bbc3d666;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 350px;
+  position: absolute;
+  left: 58%;
+  top: 33%;
+}
+
+.expansion-button3 {
+  box-shadow: 0 5px 15px #bbc3d666;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 350px;
+  position: absolute;
+  left: 58%;
+  top: 50%;
+}
+
+.save-button {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+}

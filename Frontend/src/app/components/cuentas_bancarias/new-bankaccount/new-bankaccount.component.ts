@@ -15,7 +15,6 @@ export class NewBankaccountComponent implements OnInit {
   accountnumber!:any;
   moneda!:any;
   tipodecuenta!:any;
-  
   userid!:any;
 
   constructor(private bankaccount: BankaccountService, private router: Router) { }
@@ -24,7 +23,6 @@ export class NewBankaccountComponent implements OnInit {
   }
 
   create_bankaccount(){
-
     let bankaccount = new BankAccount();
 
     this.name=document.getElementById("nombrecuenta");
@@ -33,28 +31,33 @@ export class NewBankaccountComponent implements OnInit {
     this.moneda=document.getElementById("moneda");
     this.tipodecuenta=document.getElementById("tipo_de_cuenta");
 
-    if(this.name.value==""||this.bankname.value==""||this.moneda.value==""||this.tipodecuenta.value==""){
+    if(this.name.value==""||this.bankname.value==""||this.moneda.value==""||this.tipodecuenta.value=="" || this.accountnumber.value.length==""){
+      
+    }
+    else{
+
       if(this.accountnumber.value.length<13){
         alert("El número de cuenta ingresado no tiene la cantidad correcta de dígitos");
       }
+      else {
 
-    }
-    else{
-      bankaccount.name=this.name.value;
-      bankaccount.bankName=this.bankname.value;
-      bankaccount.accountNumber=this.accountnumber.value;
-      bankaccount.moneda=this.moneda.value;
-      bankaccount.tipoDeCuenta	=this.tipodecuenta.value;
-
-      bankaccount.UserId=1;
-
-      this.bankaccount.createbankaccount(bankaccount).subscribe(
-        (response) => {
-        },
-        (_error) => {}
-      );
-
-      this.router.navigate(['/BankAccount']);
+        bankaccount.name=this.name.value;
+        bankaccount.bankName=this.bankname.value;
+        bankaccount.accountNumber=this.accountnumber.value;
+        bankaccount.moneda=this.moneda.value;
+        bankaccount.tipoDeCuenta	=this.tipodecuenta.value;
+   
+        bankaccount.UserId=1;
+   
+        this.bankaccount.createbankaccount(bankaccount).subscribe(
+           (response) => {
+           },
+           (_error) => {}
+        );
+   
+        this.router.navigate(['/BankAccount']);
+      }
+      
     }
 
   }

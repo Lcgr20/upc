@@ -19,16 +19,21 @@ h1{
     font-size: 40px;
 }
 body{
-    background-size: 100% auto;
+    min-height: 100%;
+    width: 100%;
+    background-image: url("src\assets\background.png");
+    background-position: top;
+    background-size: cover;
     font-family:Arial, Helvetica, sans-serif;
-    font-size:12px;
+    font-size:15px;
     margin: 0;
   }
   
   #envoltura{
-    position:absolute;
+    position:relative;
     left:50%;
-    top:65%;
+    top:10%;
+    transform: translate(-10%, 0%);
     margin-left:-125px;
     margin-top: -50px;
     width: 330px;

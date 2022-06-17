@@ -27,7 +27,7 @@ const routes: Routes = [
     { path:'rec-contra',component:RecuperarContraComponent},
     { path:'BankAccount',component:ListBankaccountComponent},
     { path:'BankAccount/new',component:NewBankaccountComponent},
-    { path:'BankAccount/edit',component:EditBankaccountComponent},
+    { path:'BankAccount/edit/:id',component:EditBankaccountComponent},
     { path:'tasasDeCambio',component:TasasDeCambioComponent},
     { path:'historial',component:HistorialOperacionesComponent},
     { path:'beneficios',component:VerBeneficiosComponent},

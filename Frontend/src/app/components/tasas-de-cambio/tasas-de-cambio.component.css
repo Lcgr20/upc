@@ -12,17 +12,17 @@
     justify-content: center;
   }
 body{
-    background: url("src\assets\tasabackground.png");
+    background: url("src\assets\background.png");
 }
 h1{
     color: #fff;
     text-align: center;
     padding-top:15px;
-    font-family: Axiforma-Regular;
+    font-family:'Josefin Sans', sans-serif;
     font-size: 40px;
 }
 #letra-resal{
-    color:#00C8FF
+    color:#704ca7
 }
 img {
     max-width: 50px;
@@ -48,6 +48,9 @@ button.centrado {
     margin-left: 50%;
     margin-top: 2%;
     transform: translateX(-50%);
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding-left: 10px;
 }
 .aaaa{
     color: #fff;
