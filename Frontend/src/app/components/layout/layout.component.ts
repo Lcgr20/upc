@@ -13,7 +13,7 @@ export class LayoutComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.username="";
+    this.username="a";
   }
 
 }

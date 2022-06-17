@@ -4,7 +4,7 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 .header{
-    min-height: 100vh;
+    min-height: 125%;
     width: 100%;
     background-image: linear-gradient(rgba(97, 98, 105, 0.3),rgba(97, 98, 105, 0.3)),url("src\assets\bg.jpg");
     background-position: center;

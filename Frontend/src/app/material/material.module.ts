@@ -20,6 +20,7 @@ import {MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator
 import { MatPaginatorImpl } from './mat-paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 @NgModule({
   exports: [
     MatSidenavModule,
@@ -40,7 +41,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatRippleModule,
     MatPaginatorModule,
     MatTabsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatProgressBarModule
   ],
   providers: [{provide: MatPaginatorIntl, useClass: MatPaginatorImpl}]
 })

@@ -6,9 +6,11 @@
     background-color: #fff;
     border-radius: 10px;
     max-width: 350px;
-    position: relative;
-    left: 500px;
 }
+.container {
+    display: flex;
+    justify-content: center;
+  }
 body{
     background: url("src\assets\tasabackground.png");
 }
@@ -35,9 +37,7 @@ input[type=number]::-webkit-outer-spin-button {
 .icontransfer {
     color: orange;
     transform: scale(2);
-    position: relative;
-    left: 660px;
-    top: 20px;
+    margin-top: 2%;
 
 }
 .sinborde {

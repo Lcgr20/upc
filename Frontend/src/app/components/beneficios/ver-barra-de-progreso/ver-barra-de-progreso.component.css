@@ -1,0 +1,60 @@
+h1{
+    color: rgb(46, 29, 229);
+    text-align: center;
+    padding-top:15px;
+    font-family: 'Lato', sans-serif;
+    font-size: 60px;
+    padding-top: 50px;
+}
+p{
+    color: rgb(255, 186, 92);
+    text-align: center;
+    padding-top:30px;
+    font-size: 20px;
+}
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: #55606e;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: #E4E8EB;
+}
+
+::ng-deep .mat-progress-bar {
+    height: 1000px;
+}
+.box {
+    width: auto; 
+    margin-left: 50%;
+    margin-top: 2%;
+    transform: translateX(-50%);
+}
+.aaaa{
+    color: rgb(129, 126, 126);
+    text-align: center;
+    padding-top:30px;
+    font-size: 20px;
+}
+.exchange[_ngcontent-lhs-c15] {
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-top:0px;
+    box-shadow: 0 5px 15px #51535566;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 900px;
+    width: 300px; 
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.iii{
+    color: rgb(0, 255, 34);
+}
+button.centrado {
+    width: 150px; 
+    margin-left: 50%;
+    margin-top: 2%;
+    transform: translateX(-50%);
+}

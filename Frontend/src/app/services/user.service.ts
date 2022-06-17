@@ -16,12 +16,12 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/User`,user);
   }
 
-  getInfo(){
-
+  getuserid(id_user:number){
+    return this.http.get<User>(`${this.baseUrl}/User/${id_user}`);
   }
 
-  login(){
-    
+  updateuser(id_user:number,user: User){
+    return this.http.put(`${this.baseUrl}/User/${id_user}`,user);
   }
 
 }

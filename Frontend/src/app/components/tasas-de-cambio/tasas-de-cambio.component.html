@@ -12,7 +12,8 @@
     </div>
     
     <p class="aaaa"><b>ENVIAS</b></p>
-    <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c15-1">{{moneda1}}
+    <div class="container">
+    <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c14-1">{{moneda1}}
         <img mat-card-image id="img1" src="">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>keyboard_arrow_down</mat-icon>
@@ -30,11 +31,15 @@
       </mat-menu>
       <input type="number" id="mon1-cantidad" placeholder="" autofocus="" required maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><p></p>
     </div>
-
+  </div>
+  
+  <div class="container">
     <mat-icon class="icontransfer">autorenew</mat-icon>
     <br><br><br>
+  </div>
 
     <p class="aaaa"><b>RECIBES</b></p>
+    <div class="container">
     <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c15-1">{{moneda2}}
       <img mat-card-image id="img2" src="">
       <button mat-icon-button [matMenuTriggerFor]="menuu" aria-label="Example icon-button with a menu">
@@ -53,6 +58,7 @@
     </mat-menu>
     <input type="number" class="sinborde" id="resultadomoneda" readonly>
     </div>
+  </div>
 
     <button mat-raised-button class="centrado" (click)="viewtasadecambio()">Visualizar</button>
 </body>

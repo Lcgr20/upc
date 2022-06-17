@@ -13,9 +13,7 @@ p{
     font-size: 20px;
 }
 p.centrado {
-    position: relative;
-    left: -40px;
-    top:0px;
+    position: center;
 }
 button.centrado {
     width: auto; 
