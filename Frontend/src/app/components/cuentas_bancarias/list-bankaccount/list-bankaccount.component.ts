@@ -39,7 +39,7 @@ export class ListBankaccountComponent implements OnInit {
   }
 
   eliminar(id: number){
-    const ok = confirm("¿Estás seguro de eliminar el juego?")
+    const ok = confirm("¿Estás seguro de que deseas eliminar tu cuenta bancaria?");
     if (ok){
       this.bankaccountservice.deleteBankaccount(id).subscribe(()=>{
         this.getbankacoounts(this.id_user);

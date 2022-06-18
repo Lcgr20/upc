@@ -44,7 +44,7 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 10px;
   max-width: 350px;
   position: absolute;
-  left: 58%;
+  left: 60%;
   top: 16%;
 }
 
@@ -54,7 +54,7 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 10px;
   max-width: 350px;
   position: absolute;
-  left: 58%;
+  left: 60%;
   top: 33%;
 }
 
@@ -64,7 +64,7 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 10px;
   max-width: 350px;
   position: absolute;
-  left: 58%;
+  left: 60%;
   top: 50%;
 }
 

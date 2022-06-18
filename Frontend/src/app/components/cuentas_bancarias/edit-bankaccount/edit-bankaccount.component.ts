@@ -82,6 +82,8 @@ export class EditBankaccountComponent implements OnInit {
         this.bankaccount.updatebankaccount(this.bankaccountid, updated_bankaccount).subscribe();
    
         this.router.navigate(['/BankAccount']);
+
+        alert("Se realizaron los cambios de forma correcta");
       }
       
     }

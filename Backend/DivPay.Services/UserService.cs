@@ -4,6 +4,7 @@ using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
 
 
+
 namespace DivPay.Services
 {
     public class UserService:IUserService
@@ -15,23 +16,30 @@ namespace DivPay.Services
             this._context = context;
         }
 
-        public async Task<User> CreateUser(DtoUser request)
+        public async Task<String> CreateUser(DtoUser request)
         {
-            var user = new User()
+            User usercaso1 = await _context.Users.Where(u => u.Username == request.Username).FirstOrDefaultAsync();
+            User usercaso2 = await _context.Users.Where(u => u.Dni == request.Dni).FirstOrDefaultAsync();
+            if (usercaso1 == null&& usercaso2==null)
             {
-                Username = request.Username,
-                Email = request.Email,
-                Name = request.Name,
-                Dni = request.Dni,
-                PhoneNumber = request.PhoneNumber,
-                Age = request.Age,
-                Password = request.Password,
-                Status = true
-            };
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
-
-            return user;
+                var user = new User()
+                {
+                    Username = request.Username,
+                    Email = request.Email,
+                    Name = request.Name,
+                    Dni = request.Dni,
+                    PhoneNumber = request.PhoneNumber,
+                    Age = request.Age,
+                    Password = request.Password,
+                    Status = true
+                };
+                await _context.Users.AddAsync(user);
+                await _context.SaveChangesAsync();
+                return "correcto";
+            }
+            if(usercaso1 != null) { return "existe-mismo-username"; }
+            if (usercaso2 != null) { return "existe-mismo-dni"; }
+            return "a";
         }
 
         public async Task DeleteUser(User user)
@@ -48,6 +56,20 @@ namespace DivPay.Services
         public async Task<List<User>> GetUsers()
         {
             return await _context.Users.ToListAsync();
+        }
+
+        public async Task<String> Sigunp(String usuario, String contraseña)
+        {
+            User usercaso1 = await _context.Users.Where(u => u.Username == usuario).FirstOrDefaultAsync();
+            if (usercaso1 == null)
+            {
+                return "El usuario no existe";
+            }
+            if (usercaso1.Password!= contraseña)
+            {
+                return "La contraseña es incorrecta";
+            }
+            else { return "login exitoso"; }
         }
 
         public async Task UpdateUser(int id,DtoUser request)

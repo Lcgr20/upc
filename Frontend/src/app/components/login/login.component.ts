@@ -25,7 +25,16 @@ export class LoginComponent implements OnInit {
       
     }
     else{
-      
+      this.userService.signup(this.username.value,this.password.value).subscribe({
+        next: (data) => {
+          console.log(data);
+          if(data!="login exitoso"){
+            alert(data);
+          }
+          
+        },
+        error: (e) => console.error(e),
+      });
     }
   }
 

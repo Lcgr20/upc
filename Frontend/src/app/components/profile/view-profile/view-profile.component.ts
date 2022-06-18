@@ -70,6 +70,7 @@ export class ViewProfileComponent implements OnInit {
     this.userservice.updateuser(this.userid,userrr).subscribe(()=>{
       this.getinfouser();
     })
+    alert("Se realizaron los cambios de forma correcta");
   }
 
 }

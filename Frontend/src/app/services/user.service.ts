@@ -24,4 +24,8 @@ export class UserService {
     return this.http.put(`${this.baseUrl}/User/${id_user}`,user);
   }
 
+  signup(usuario:string,contra:string){
+    return this.http.get(`${this.baseUrl}/User/signup/${usuario}/${contra}`, {responseType: 'text'});
+  }
+
 }

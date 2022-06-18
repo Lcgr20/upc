@@ -40,7 +40,10 @@ public class UserController: ControllerBase
     [HttpPost]
     public async Task<ActionResult<User>> Post(DtoUser request)
     {
-        await _userService.CreateUser(request); 
+        string respuesta= await _userService.CreateUser(request); 
+        if(respuesta== "correcto") { return Ok(); }
+        if(respuesta== "existe-mismo-username") { return BadRequest("existe un usuario con el mismo Username"); }
+        if (respuesta == "existe-mismo-dni") { return BadRequest("existe un usuario con el mismo DNI"); }
         return Ok();
     }
 
@@ -61,6 +64,14 @@ public class UserController: ControllerBase
     {
         await _userService.UpdateUser(id, request);
         return NoContent();
+    }
+
+
+    [HttpGet("signup/{usuario}/{contraseña}")]
+    public async Task<ActionResult<string>> signup(string usuario,string contraseña)
+    {
+        string respuesta = await _userService.Sigunp(usuario, contraseña);
+        return Ok(respuesta);
     }
 }
 
