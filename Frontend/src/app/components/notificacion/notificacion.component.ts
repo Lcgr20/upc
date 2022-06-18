@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notificacion',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificacionComponent implements OnInit {
 
-  constructor() { }
+  userid!:any;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.userid = localStorage.getItem('userid');
+    if(this.userid==null){this.router.navigate(['../register']);}
   }
 
 }

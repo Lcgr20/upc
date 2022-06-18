@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 export class LayoutComponent implements OnInit {
 
   username!:string;
+  userid!:any;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.username="a";
+    this.userid = localStorage.getItem('userid');
   }
 
 }

@@ -50,11 +50,16 @@ export class RegisterComponent implements OnInit {
 
       this.userService.register_user(userr).subscribe(
         (response) => {
+          if(response!="registro correcto"){
+            alert(response);
+          }
+          else{
+            this.router.navigate(['../login']);
+          }
         },
         (_error) => {}
       );
-
-      this.router.navigate(['../login']);
+      
     }
 
   }

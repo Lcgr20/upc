@@ -38,13 +38,10 @@ public class UserController: ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<User>> Post(DtoUser request)
+    public async Task<ActionResult<string>> Post(DtoUser request)
     {
-        string respuesta= await _userService.CreateUser(request); 
-        if(respuesta== "correcto") { return Ok(); }
-        if(respuesta== "existe-mismo-username") { return BadRequest("existe un usuario con el mismo Username"); }
-        if (respuesta == "existe-mismo-dni") { return BadRequest("existe un usuario con el mismo DNI"); }
-        return Ok();
+        string respuesta= await _userService.CreateUser(request);
+        return Ok(respuesta);
     }
 
     [HttpDelete("{id:int}")]
@@ -71,6 +68,20 @@ public class UserController: ControllerBase
     public async Task<ActionResult<string>> signup(string usuario,string contraseña)
     {
         string respuesta = await _userService.Sigunp(usuario, contraseña);
+        return Ok(respuesta);
+    }
+
+    [HttpGet("recupcontraemail/{usuario}/{email}")]
+    public async Task<ActionResult<string>> recupcontraemail(string usuario, string email)
+    {
+        string respuesta = await _userService.Recupcontraemail(usuario, email);
+        return Ok(respuesta);
+    }
+
+    [HttpGet("recupcontracelu/{usuario}/{numcelu}")]
+    public async Task<ActionResult<string>> recupcontracelu(string usuario, int numcelu)
+    {
+        string respuesta = await _userService.Recupcontracelu(usuario, numcelu);
         return Ok(respuesta);
     }
 }

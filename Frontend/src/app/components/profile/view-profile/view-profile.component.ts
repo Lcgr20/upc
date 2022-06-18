@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -18,10 +19,11 @@ export class ViewProfileComponent implements OnInit {
   edad!:any;
   num_cel!:any;
 
-  constructor(private userservice:UserService) { }
+  constructor(private userservice:UserService,private router: Router) { }
 
   ngOnInit(): void {
-    this.userid=1;
+    this.userid=localStorage.getItem('userid');
+    if(this.userid==null){this.router.navigate(['../register']);}
     this.username=document.querySelector("#username");
     this.name=document.querySelector("#fullname");
     this.email=document.querySelector("#email");

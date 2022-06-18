@@ -11,6 +11,8 @@ namespace DivPay.Services
         Task<List<User>> GetUsers();
         Task UpdateUser(int id,DtoUser user);
         Task<String> Sigunp(String usuario,String contraseña);
+        Task<String> Recupcontraemail(String usuario, String email);
+        Task<String> Recupcontracelu(String usuario, int numcelu);
 
     }
 }

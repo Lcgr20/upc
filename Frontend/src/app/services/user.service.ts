@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   register_user(user: User){
-    return this.http.post(`${this.baseUrl}/User`,user);
+    return this.http.post(`${this.baseUrl}/User`,user, {responseType: 'text'});
   }
 
   getuserid(id_user:number){
@@ -26,6 +26,14 @@ export class UserService {
 
   signup(usuario:string,contra:string){
     return this.http.get(`${this.baseUrl}/User/signup/${usuario}/${contra}`, {responseType: 'text'});
+  }
+
+  recuemail(usuario:string,email:string){
+    return this.http.get(`${this.baseUrl}/User/recupcontraemail/${usuario}/${email}`, {responseType: 'text'});
+  }
+
+  recucelu(usuario:string,numcel:number){
+    return this.http.get(`${this.baseUrl}/User/recupcontracelu/${usuario}/${numcel}`, {responseType: 'text'});
   }
 
 }

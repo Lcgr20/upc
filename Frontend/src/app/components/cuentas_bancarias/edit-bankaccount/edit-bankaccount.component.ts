@@ -23,6 +23,9 @@ export class EditBankaccountComponent implements OnInit {
   constructor(private bankaccount: BankaccountService, private router: Router) { }
 
   ngOnInit(): void {
+    this.userid=localStorage.getItem('userid');
+    if(this.userid==null){this.router.navigate(['../register']);}
+
     this.bankaccountid=this.router.url.split("/")[this.router.url.split("/").length-1];
     this.bankaccountid = parseInt(this.bankaccountid)
     this.get_bankaccount(this.bankaccountid)

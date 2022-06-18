@@ -22,14 +22,16 @@ export class LoginComponent implements OnInit {
     this.password=document.getElementById("password");
 
     if(this.username.value==""||this.password.value==""){
-      
+      alert("No ha completado todos los campos obligatorios para iniciar sesión");
     }
     else{
       this.userService.signup(this.username.value,this.password.value).subscribe({
         next: (data) => {
-          console.log(data);
-          if(data!="login exitoso"){
+          if(data=="El usuario no existe"||data=="La contraseña es incorrecta"){
             alert(data);
+          }
+          else{
+            localStorage.setItem('userid', data);
           }
           
         },

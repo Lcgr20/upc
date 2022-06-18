@@ -13,7 +13,7 @@ import { BankaccountService } from 'src/app/services/bankaccount.service';
 })
 export class ListBankaccountComponent implements OnInit {
   
-  id_user!:number;
+  id_user!:any;
   bankaccounts?:BankAccount[];
   bankaccount:BankAccount=new BankAccount();
   dataSource!: MatTableDataSource<BankAccount>;
@@ -23,7 +23,8 @@ export class ListBankaccountComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.id_user=1;
+    this.id_user = localStorage.getItem('userid');
+    if(this.id_user==null){this.router.navigate(['../register']);}
     this.getbankacoounts(this.id_user);
   }
 

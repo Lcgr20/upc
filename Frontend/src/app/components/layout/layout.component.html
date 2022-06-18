@@ -19,16 +19,16 @@
     <button mat-button routerLink="/ayuda" class="ms-2">Ayuda</button>
     
   
-    <button mat-button routerLink="/notificacion" matBadge="2">
+    <button mat-button routerLink="/notificacion" matBadge="2" *ngIf="userid != null">
         <mat-icon>notifications</mat-icon>
     </button>
 
-    <div *ngIf="username == ''">
+    <div *ngIf="userid == null">
         <button routerLink="/login">Iniciar sesión</button>
         <button routerLink="/register">Registrarse</button>
     </div>
   
-    <button mat-button [matMenuTriggerFor]="menu" *ngIf="username != ''">
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="userid != null">
       <mat-icon>account_circle</mat-icon>
     </button>
   

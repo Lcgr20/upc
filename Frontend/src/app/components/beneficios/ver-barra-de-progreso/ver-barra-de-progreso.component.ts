@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Coupon } from 'src/app/models/Coupon';
+import { Notification } from 'src/app/models/Notification';
 import { InvitationCode } from 'src/app/models/InvitationCode';
 import { CouponService } from 'src/app/services/coupon.service';
 import { InvitationcodeService } from 'src/app/services/invitationcode.service';
+import { NotificationService } from 'src/app/services/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ver-barra-de-progreso',
@@ -17,12 +20,15 @@ export class VerBarraDeProgresoComponent implements OnInit {
   codigo_invi!:any;
   invitationcode!:InvitationCode;
   couponn!:Coupon;
-  id_userr!:number;
+  id_userr!:any;
+  cupon_codigo!:string;
 
-  constructor(private invitationcodeservice: InvitationcodeService,private couponservice: CouponService) { }
+  constructor(private invitationcodeservice: InvitationcodeService,private couponservice: CouponService
+    ,private notifactionservice:NotificationService,private router: Router) { }
 
   ngOnInit(): void {
-    this.id_userr=1;
+    this.id_userr=localStorage.getItem('userid');
+    if(this.id_userr==null){this.router.navigate(['../register']);}
     this.getorcreate(this.id_userr);
   }
 
@@ -91,6 +97,7 @@ export class VerBarraDeProgresoComponent implements OnInit {
         
       cod += str.charAt(char)
     }
+    this.cupon_codigo=cod;
     couponnn.couponCode=cod;
     couponnn.discount=2;
     couponnn.userId=this.id_userr;
@@ -104,11 +111,29 @@ export class VerBarraDeProgresoComponent implements OnInit {
 
   /////////
 
+  createnotification(){
+    var notifiaccion = new Notification();
+    notifiaccion.title="TU CUPÓN DE DIVPAY";
+    notifiaccion.description="Su cupón de descuento es : ' "+this.cupon_codigo+" ' , recuerda utilizarlo al momento de comprar divisas.";
+    notifiaccion.notificationStatus="No leido";
+    notifiaccion.notificationType="Cupon";
+    notifiaccion.userId=this.id_userr;
+    let date = new Date();
+    notifiaccion.date=date.toISOString().split('T')[0]+"T"+date.toISOString().split('T')[1];
+    console.log(notifiaccion);
+    this.notifactionservice.createnotification(notifiaccion).subscribe(
+      (response) => {
+      },
+      (_error) => {}
+    );
+  }
+
   reclamarcupon(){
-    if(this.numInvitados==0){
+    if(this.numInvitados==10){
       this.getcoupon(this.id_userr);
       if(this.couponn==null){
         this.createecoupon();
+        this.createnotification();
       }
     }
     else{

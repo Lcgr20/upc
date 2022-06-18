@@ -72,6 +72,7 @@ export class TasasDeCambioComponent implements OnInit {
 
 
     this.mon1_cantidad=document.getElementById("mon1-cantidad");
+    if(this.mon1_cantidad.value==""){this.mon1_cantidad.value="1";}
     var valor=this.mon1_cantidad.value;
     this.mon2_cantidad=document.getElementById("resultadomoneda");
     this.mon2_cantidad.value=valor*this.ratio_nosotros;
