@@ -47,8 +47,8 @@ public class BankAccountController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> Post(DtoBankAccount request)
     {
-        await _bankAccountService.CreateBankAccount(request);
-        return Ok();
+        string message = await _bankAccountService.CreateBankAccount(request);
+        return Ok(message);
     }
 
     [HttpDelete("{id:int}")]
@@ -66,7 +66,7 @@ public class BankAccountController : ControllerBase
     [HttpPut("{id:int}")]
     public async Task<ActionResult> Put(int id, DtoBankAccount request)
     {
-        await _bankAccountService.UpdateBankAccount(id, request);
-        return NoContent();
+        string message = await _bankAccountService.UpdateBankAccount(id, request);
+        return Ok(message);
     }
 }

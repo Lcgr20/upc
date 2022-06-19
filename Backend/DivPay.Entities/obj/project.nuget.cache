@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zxVl/ci1/VjTf1VcTzlwwkgv9XFkT05gMu61l9i/EYLsOoruQy6Z8VHieD60uMcczgqTTyJf+eKYyfztJzsw9Q==",
+  "dgSpecHash": "l4shh3rgmroDCN7rneLA8/RyqfQoe7Eop/3rUrXAD+MysZijGW/2PCjYDpVaEH+OM13Tk3PXk04ED+B3VGNZRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.Entities\\DivPay.Entities.csproj",
+  "projectFilePath": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.Entities\\DivPay.Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

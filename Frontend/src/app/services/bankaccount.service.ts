@@ -23,11 +23,11 @@ export class BankaccountService {
   }
 
   createbankaccount(bankAccount: BankAccount){
-    return this.http.post(`${this.baseUrl}/BankAccount`,bankAccount);
+    return this.http.post(`${this.baseUrl}/BankAccount`,bankAccount, {responseType: 'text'});
   }
 
   updatebankaccount(id:number, bankAccount: BankAccount){
-    return this.http.put<BankAccount>(`${this.baseUrl}/BankAccount/${id}`,bankAccount);
+    return this.http.put(`${this.baseUrl}/BankAccount/${id}`,bankAccount, {responseType: 'text'});
   }
 
   deleteBankaccount(id: number){

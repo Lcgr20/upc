@@ -23,9 +23,6 @@ export class EditBankaccountComponent implements OnInit {
   constructor(private bankaccount: BankaccountService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userid=localStorage.getItem('userid');
-    if(this.userid==null){this.router.navigate(['../register']);}
-
     this.bankaccountid=this.router.url.split("/")[this.router.url.split("/").length-1];
     this.bankaccountid = parseInt(this.bankaccountid)
     this.get_bankaccount(this.bankaccountid)
@@ -81,12 +78,15 @@ export class EditBankaccountComponent implements OnInit {
         updated_bankaccount.moneda=this.moneda.value;
         updated_bankaccount.tipoDeCuenta	=this.tipodecuenta.value;
   
-        console.log("dsdsd");
-        this.bankaccount.updatebankaccount(this.bankaccountid, updated_bankaccount).subscribe();
+        this.bankaccount.updatebankaccount(this.bankaccountid, updated_bankaccount).subscribe({
+          next: (data) => {
+            console.log(data);
+            alert(data)
+          },
+          error: (e) => console.error(e),
+        });
    
         this.router.navigate(['/BankAccount']);
-
-        alert("Se realizaron los cambios de forma correcta");
       }
       
     }

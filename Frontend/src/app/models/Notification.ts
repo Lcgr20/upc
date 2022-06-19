@@ -1,10 +1,10 @@
 export class Notification {
     id?: number;
-    status?:boolean;
+    status?: boolean;
     title?: string;
-    description?:string;
-    notificationStatus?:string;
-    date?:string;
-    notificationType?:string;
+    description?: string;
+    notificationStatus?: string;
+    date?: string;
+    notificationType?: string;
     userId?: number;
 }

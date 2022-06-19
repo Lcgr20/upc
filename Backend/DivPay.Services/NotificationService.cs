@@ -52,4 +52,17 @@ public class NotificationService:INotificationService
     {
         return await _context.Notifications.Where(n => n.UserId == id).ToListAsync();
     }
+
+    public async Task UpdateStatus(int id, DtoNotification notification)
+    {
+        var entity = await _context.Notifications.FindAsync(id);
+        entity.Title = notification.Title;
+        entity.NotificationStatus = notification.NotificationStatus;
+        entity.Date = notification.Date;
+        entity.Description = notification.Description;
+        entity.NotificationType = notification.NotificationType;
+
+        _context.Entry(entity).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+    }
 }

@@ -10,10 +10,10 @@ namespace DivPay.Services;
 
 public interface IBankAccountService
 {
-    Task<BankAccount> CreateBankAccount(DtoBankAccount bankAccount);
+    Task<String> CreateBankAccount(DtoBankAccount bankAccount);
     Task DeleteBankAccount(BankAccount bankAccount);
     Task<BankAccount> GetBankAccount(int id);
     Task<List<BankAccount>> GetBankAccounts();
     Task<List<BankAccount>> GetBankAccountsFromUser(int id);
-    Task UpdateBankAccount(int id, DtoBankAccount bankAccount);
+    Task<String> UpdateBankAccount(int id, DtoBankAccount bankAccount);
 }

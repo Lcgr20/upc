@@ -63,4 +63,11 @@ public class NotificationController : ControllerBase
         await _notificationService.DeleteNotification(notification);
         return NoContent();
     }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> UpdateStatus(int id, DtoNotification notification)
+    {
+       await _notificationService.UpdateStatus(id, notification);
+       return NoContent();
+    }
 }

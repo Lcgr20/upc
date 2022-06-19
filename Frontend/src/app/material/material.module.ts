@@ -21,6 +21,7 @@ import { MatPaginatorImpl } from './mat-paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   exports: [
     MatSidenavModule,
@@ -42,7 +43,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatPaginatorModule,
     MatTabsModule,
     MatButtonToggleModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatListModule
   ],
   providers: [{provide: MatPaginatorIntl, useClass: MatPaginatorImpl}]
 })

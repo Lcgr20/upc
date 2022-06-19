@@ -8,19 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Sergio\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.Entities\\DivPay.Entities.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.Entities\\DivPay.Entities.csproj",
       "projectName": "DivPay.Entities",
-      "projectPath": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.Entities\\DivPay.Entities.csproj",
-      "packagesPath": "C:\\Users\\Sergio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.Entities\\obj\\",
+      "projectPath": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.Entities\\DivPay.Entities.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.Entities\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

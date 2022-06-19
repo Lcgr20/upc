@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Notification } from 'src/app/models/Notification';
+import { NotificationService } from 'src/app/services/notification.service';
+import { MatListItem} from '@angular/material/list';
+
 
 @Component({
   selector: 'app-notificacion',
@@ -8,13 +13,53 @@ import { Router } from '@angular/router';
 })
 export class NotificacionComponent implements OnInit {
 
-  userid!:any;
+  id_user!:any;
+  // unread_notifications?:Notification[];
+  notifications?:Notification[];
+  data:any[] = [];
+  unread_notifications:any[] = [];
+  updated_notification:any;
 
-  constructor(private router: Router) { }
+  constructor(private notificationservice: NotificationService, private router: Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.userid = localStorage.getItem('userid');
-    if(this.userid==null){this.router.navigate(['../register']);}
+    this.id_user = 1;
+    this.getnotifications(this.id_user);
+  }
+
+  getnotifications(iduser:number) {
+
+    this.notificationservice.getnotifications(iduser).subscribe({
+      next: (response) => {
+        this.notifications = response;
+        this.unread_notifications = [] as any[];
+
+        for (let n of this.notifications){
+          if (n.notificationStatus == "noleido")
+          {
+            this.unread_notifications.push(n);
+          }
+        }
+      },
+      error: (e) => console.error(e),
+    });
+    
+    
+  }
+
+  getnotification(id:number) {
+    this.notificationservice.getnotification(id).subscribe({
+      next: (data) => {
+        this.updated_notification = data;
+        this.updated_notification.notificationStatus = "leido";
+        this.notificationservice.updatestatus(id, this.updated_notification).subscribe();
+      }
+      
+    });
+  }
+
+  read_notification(id:number) {
+    this.getnotification(id);
   }
 
 }

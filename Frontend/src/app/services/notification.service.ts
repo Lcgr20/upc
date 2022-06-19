@@ -12,7 +12,23 @@ export class NotificationService {
 
   constructor(private http:HttpClient) { }
 
+  getnotification(id:number){
+    return this.http.get<Notification>(`${this.baseUrl}/Notification/${id}`);
+  }
+
+  getnotifications(id_user:number){
+    return this.http.get<Notification[]>(`${this.baseUrl}/Notification/NotificationsFromUser/${id_user}`);
+  }
+
   createnotification(notification:Notification){
     return this.http.post(`${this.baseUrl}/Notification`,notification);
+  }
+
+  deletenotification(id:number){
+    return this.http.delete(`${this.baseUrl}/Notification/${id}`);
+  }
+
+  updatestatus(id:number, notificacion:Notification) {
+    return this.http.put(`${this.baseUrl}/Notification/${id}`, notificacion);
   }
 }
