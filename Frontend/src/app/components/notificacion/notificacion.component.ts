@@ -23,7 +23,8 @@ export class NotificacionComponent implements OnInit {
   constructor(private notificationservice: NotificationService, private router: Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.id_user = 1;
+    this.id_user=localStorage.getItem('userid');
+    if(this.id_user==null){this.router.navigate(['../register']);}
     this.getnotifications(this.id_user);
   }
 
@@ -53,6 +54,7 @@ export class NotificacionComponent implements OnInit {
         this.updated_notification = data;
         this.updated_notification.notificationStatus = "leido";
         this.notificationservice.updatestatus(id, this.updated_notification).subscribe();
+        window.location.href="/notificacion";
       }
       
     });

@@ -17,4 +17,10 @@ export class LayoutComponent implements OnInit {
     this.userid = localStorage.getItem('userid');
   }
 
+  cerrarsesion(){
+    localStorage.removeItem('userid');
+    //this.router.navigate(['../']);
+    window.location.reload();
+  }
+
 }

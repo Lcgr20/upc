@@ -8,23 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Sergio\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.DTO\\DivPay.DTO.csproj",
+      "projectUniqueName": "C:\\Users\\Sergio\\Desktop\\backend probar\\DivPay.DTO\\DivPay.DTO.csproj",
       "projectName": "DivPay.DTO",
-      "projectPath": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.DTO\\DivPay.DTO.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\DivPay\\Backend\\DivPay.DTO\\obj\\",
+      "projectPath": "C:\\Users\\Sergio\\Desktop\\backend probar\\DivPay.DTO\\DivPay.DTO.csproj",
+      "packagesPath": "C:\\Users\\Sergio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sergio\\Desktop\\backend probar\\DivPay.DTO\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

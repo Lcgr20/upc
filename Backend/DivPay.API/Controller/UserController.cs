@@ -64,10 +64,10 @@ public class UserController: ControllerBase
     }
 
 
-    [HttpGet("signup/{usuario}/{contraseña}")]
-    public async Task<ActionResult<string>> signup(string usuario,string contraseña)
+    [HttpGet("login/{usuario}/{contraseña}")]
+    public async Task<ActionResult<string>> login(string usuario,string contraseña)
     {
-        string respuesta = await _userService.Sigunp(usuario, contraseña);
+        string respuesta = await _userService.Login(usuario, contraseña);
         return Ok(respuesta);
     }
 

@@ -73,6 +73,9 @@ export class VerBarraDeProgresoComponent implements OnInit {
       },
       (_error) => {}
     );
+    this.numInvitados=0;
+    this.codigo_invi=cod;
+    this.numInvitados_barra=0;
   }
 
   /////////
@@ -115,7 +118,7 @@ export class VerBarraDeProgresoComponent implements OnInit {
     var notifiaccion = new Notification();
     notifiaccion.title="TU CUPÓN DE DIVPAY";
     notifiaccion.description="Su cupón de descuento es : ' "+this.cupon_codigo+" ' , recuerda utilizarlo al momento de comprar divisas.";
-    notifiaccion.notificationStatus="No leido";
+    notifiaccion.notificationStatus="noleido";
     notifiaccion.notificationType="Cupon";
     notifiaccion.userId=this.id_userr;
     let date = new Date();
@@ -134,6 +137,7 @@ export class VerBarraDeProgresoComponent implements OnInit {
       if(this.couponn==null){
         this.createecoupon();
         this.createnotification();
+        window.location.href="/notificacion";
       }
     }
     else{

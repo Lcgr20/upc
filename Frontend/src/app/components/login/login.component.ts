@@ -25,13 +25,15 @@ export class LoginComponent implements OnInit {
       alert("No ha completado todos los campos obligatorios para iniciar sesión");
     }
     else{
-      this.userService.signup(this.username.value,this.password.value).subscribe({
+      this.userService.login(this.username.value,this.password.value).subscribe({
         next: (data) => {
           if(data=="El usuario no existe"||data=="La contraseña es incorrecta"){
             alert(data);
           }
           else{
             localStorage.setItem('userid', data);
+            //this.router.navigate(['../']);
+            window.location.href="";
           }
           
         },

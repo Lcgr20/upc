@@ -22,6 +22,8 @@ export class NewBankaccountComponent implements OnInit {
   constructor(private bankaccount: BankaccountService, private router: Router) { }
 
   ngOnInit(): void {
+    this.userid=localStorage.getItem('userid');
+    if(this.userid==null){this.router.navigate(['../register']);}
   }
 
   create_bankaccount(){
@@ -49,16 +51,15 @@ export class NewBankaccountComponent implements OnInit {
         bankaccount.moneda=this.moneda.value;
         bankaccount.tipoDeCuenta	=this.tipodecuenta.value;
    
-        bankaccount.UserId=1;
+        bankaccount.UserId=this.userid;
    
         this.bankaccount.createbankaccount(bankaccount).subscribe({
           next: (data) => {
-            alert(data)
+            alert(data);
+            window.location.href="/BankAccount";
           },
           error: (e) => console.error(e),
         });
-
-        this.router.navigate(['/BankAccount']); 
       }
       
     }

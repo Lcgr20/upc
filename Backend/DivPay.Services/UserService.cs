@@ -58,7 +58,7 @@ namespace DivPay.Services
             return await _context.Users.ToListAsync();
         }
 
-        public async Task<String> Sigunp(String usuario, String contraseña)
+        public async Task<String> Login(String usuario, String contraseña)
         {
             User usercaso1 = await _context.Users.Where(u => u.Username == usuario).FirstOrDefaultAsync();
             if (usercaso1 == null)

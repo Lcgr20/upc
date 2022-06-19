@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
             alert(response);
           }
           else{
-            this.router.navigate(['../login']);
+            window.location.href="/login";
           }
         },
         (_error) => {}
