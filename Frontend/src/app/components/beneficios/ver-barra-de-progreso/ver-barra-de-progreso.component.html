@@ -20,7 +20,7 @@
     
         <div class="container">
             <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c15-1">
-                <p class="iii">{{codigo_invi}}<button mat-button (click)="botoncopiar()"><mat-icon>file_copy</mat-icon></button>Copiar</p>
+                <p class="iii">{{codigo_invi}}<button mat-button  [cdkCopyToClipboard]="codigo_invi" (click)="botoncopiar()"><mat-icon>file_copy</mat-icon></button>Copiar</p>
             </div>
         </div>
     <button mat-raised-button color="warn" class="centrado" (click)="reclamarcupon()">Reclamar</button>

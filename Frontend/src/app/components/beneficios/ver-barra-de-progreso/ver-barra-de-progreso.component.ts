@@ -23,6 +23,8 @@ export class VerBarraDeProgresoComponent implements OnInit {
   id_userr!:any;
   cupon_codigo!:string;
 
+  temp!:string;
+
   constructor(private invitationcodeservice: InvitationcodeService,private couponservice: CouponService
     ,private notifactionservice:NotificationService,private router: Router) { }
 
