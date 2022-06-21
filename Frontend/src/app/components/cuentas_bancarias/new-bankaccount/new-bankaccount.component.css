@@ -1,0 +1,53 @@
+*{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.newacc-page {
+  min-height: 100%;
+  width: 100%;
+  background-image: url("src\assets\background.png");
+  background-position: top;
+  background-size: cover;
+  position: relative;
+}
+
+.new-bankaccount h1{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #704ca7;
+}
+
+.new-bankaccount {
+  width: 70%;
+  position: absolute;
+  padding-left: 30%;
+  top: 5%;
+  left: 40%;
+  transform: translate(-40%, 0%);
+  font-size: 20px;
+}
+
+.new-bankaccount label{
+  color: #fff;
+}
+
+.new-bankaccount select{
+  width: 40%;
+}
+
+.new-bankaccount input{
+  width: 40%;
+}
+
+.new-bankaccount button{
+  border: 5px solid #fff;
+  background-color: #fff;
+  font-size: 20px;
+}

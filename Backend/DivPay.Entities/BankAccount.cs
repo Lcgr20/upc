@@ -15,6 +15,10 @@ public class BankAccount: EntityBase
     [Required]
     public string AccountNumber { get; set; }
 
+    [StringLength(15)]
+    [Required]
+    public string BankName { get; set; }
+
     [StringLength(25)]
     [Required]
     public string Moneda { get; set; }

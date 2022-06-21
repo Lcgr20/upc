@@ -4,6 +4,7 @@ using DivPay.DTO.Response;
 using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
 using DivPay.DTO.Request;
+using DivPay.Services;
 
 namespace DivPay.API.Controller;
 
@@ -12,51 +13,42 @@ namespace DivPay.API.Controller;
 
 public class PaymentRecordController : ControllerBase
 {
-    private readonly DivPayDBContext _context;
+    private readonly IPaymentRecordService _paymentRecordService;
 
-    public PaymentRecordController(DivPayDBContext context)
+    public PaymentRecordController(IPaymentRecordService paymentRecordService)
     {
-        _context = context;
+        _paymentRecordService = paymentRecordService;
     }
 
     [HttpGet]
-    public async Task<ActionResult<ICollection<PaymentRecord>>> Get()
+    public async Task<ActionResult<IEnumerable<PaymentRecord>>> Get()
     {
-        ICollection<PaymentRecord> response;
-
-        response = await _context.PaymentRecords.ToListAsync();
-
-
-        return Ok(response);
+        return await _paymentRecordService.GetPaymentRecords();
 
     }
 
-    [HttpGet("{id:int}")]
+    [HttpGet("{id:int}", Name ="GetPaymentRecord")]
     public async Task<ActionResult<PaymentRecord>> Get(int id)
     {
-        var entity = await _context.PaymentRecords.FindAsync(id);
-        if (entity == null)
+        var paymentRecord = await _paymentRecordService.GetPaymentRecord(id);
+
+        if (paymentRecord == null)
         {
-            return NotFound("No se encontró ningún resultado");
+            return NotFound();
         }
-        return Ok(entity);
+        return Ok(paymentRecord);
+    }
+
+    [HttpGet("PaymentRecordsFromUser/{id:int}")]
+    public async Task<ActionResult<IEnumerable<PaymentRecord>>> GetPaymentRecordsFromUser(int id)
+    {
+        return await _paymentRecordService.GetPaymentRecordsFromUser(id);
     }
 
     [HttpPost]
     public async Task<ActionResult> Post(DtoPaymentRecord request)
     {
-        var entity = new PaymentRecord
-        {
-            PaymentStatus = request.PaymentStatus,
-            PaymentDate = request.PaymentDate,
-            UserId = request.UserId,
-            Status = true
-        };
-
-        _context.PaymentRecords.Add(entity);
-        await _context.SaveChangesAsync();
-
-        HttpContext.Response.Headers.Add("location", $"/api/paymentRecord/{entity.Id}");
+        await _paymentRecordService.CreatePaymentRecord(request);
         return Ok();
     }
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,100;1,300;1,400&family=Nanum+Gothic:wght@400;700;800&family=Open+Sans:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section class="newacc-page">
+        <div class="new-bankaccount">
+            <h1>Nueva cuenta</h1>
+            <form id="form-bankaccount" action="" autocomplete="off">
+                <p><label >Tipo de cuenta:</label></p>
+                <select name="tipo de cuenta" id="tipo_de_cuenta">
+                    <option> Ahorro </option>
+                    <option> Corriente </option>
+                </select><p></p>
+    
+                <p><label >Banco:</label></p>
+                <select name="banco" id="banco">
+                    <option> BCP </option><option >Interbank</option><option >BBVA</option><option >Scotiabank</option>
+                    <option> Pichincha </option><option >Falabella</option><option >Ripley</option>
+                </select><p></p>
+    
+                <p><label >Moneda:</label></p>
+                <select name="moneda" id="moneda">
+                    <option> Soles </option><option >Dólares</option><option >Euros</option>
+                </select><p></p>
+    
+                <p><label >Número de cuenta:</label></p>
+                    <input type="number" id="num_cuenta" placeholder="Escribe tu cuenta de destino" autofocus="" required maxlength="14" oninput="javascript: if (this.value.length > this.maxLength ) this.value = this.value.slice(0, this.maxLength);"><p></p>
+                
+                <p><label >Ponle nombre a tu cuenta:</label></p>
+                    <input type="text" id="nombrecuenta" placeholder="Escribe un alias" autofocus="" required maxlength="40"><p></p>
+    
+                <button mat-raised-button (click)="create_bankaccount()" type="button">Guardar Cuenta</button>
+    
+            </form>
+        </div>
+    </section>
+    
+</body>
+
+</html>

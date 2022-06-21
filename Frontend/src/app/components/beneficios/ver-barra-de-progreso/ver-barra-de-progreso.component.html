@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,100;1,300;1,400&family=Nanum+Gothic:wght@400;700;800&family=Open+Sans:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="progress-bar-page">
+        <h1>Barra de Progreso</h1> <br> <br> <br>
+        <div class="box">
+            <mat-progress-bar mode="determinate" id="barra" value={{numInvitados_barra}}></mat-progress-bar><br>
+        </div>
+        
+        <p>¡Ya vas {{numInvitados}}/10 amigos que <br>
+            usaron tu código!</p>
+    
+        <p class="aaaa"> TU CÓDIGO </p>
+    
+        <div class="container">
+            <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c15-1">
+                <p class="iii">{{codigo_invi}}<button mat-button  [cdkCopyToClipboard]="codigo_invi" (click)="botoncopiar()"><mat-icon>file_copy</mat-icon></button>Copiar</p>
+            </div>
+        </div>
+    <button mat-raised-button color="warn" class="centrado" (click)="reclamarcupon()">Reclamar</button>
+
+    </section>
+    
+</body>
+</html>
+<mat-progress-bar mode="determinate" value="40"></mat-progress-bar>

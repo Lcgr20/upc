@@ -1,0 +1,72 @@
+.exchange[_ngcontent-lhs-c15] {
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-top:20px;
+    box-shadow: 0 5px 15px #bbc3d666;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 350px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+  }
+body{
+    background: url("src\assets\background.png");
+}
+h1{
+    color: #fff;
+    text-align: center;
+    padding-top:15px;
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 40px;
+}
+#letra-resal{
+    color:#704ca7
+}
+img {
+    max-width: 50px;
+    max-height: 50px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.icontransfer {
+    color: orange;
+    transform: scale(2);
+    margin-top: 2%;
+
+}
+.sinborde {
+    border: 0;
+}
+button.centrado {
+    width: 110px; 
+    margin-left: 50%;
+    margin-top: 2%;
+    transform: translateX(-50%);
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.aaaa{
+    color: #fff;
+    text-align: center;
+    padding-top:0px;
+    font-size: 12px;
+}
+.eeee{
+    color: rgb(0, 255, 21);
+    text-align: center;
+    padding-top:10px;
+    font-size: 17px;
+}
+.iiii{
+    color: rgb(220, 255, 21);
+    text-align: center;
+    padding-bottom:10px;
+    font-size: 17px;
+}

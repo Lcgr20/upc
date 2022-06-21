@@ -4,6 +4,7 @@ using DivPay.DTO.Response;
 using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
 using DivPay.DTO.Request;
+using DivPay.Services;
 
 namespace DivPay.API.Controller;
 
@@ -11,77 +12,77 @@ namespace DivPay.API.Controller;
 [Route("api/[Controller]")]
 public class UserController: ControllerBase
 {
-    private readonly DivPayDBContext _context;
+    private readonly IUserService _userService;
 
-    public UserController(DivPayDBContext context)
+    public UserController(IUserService userService)
     {
-        _context = context;
+        this._userService = userService;
     }
-
+    
     [HttpGet]
-    public async Task<ActionResult<ICollection<User>>> Get()
+    public async Task<ActionResult<IEnumerable<User>>> Get()
     {
-        ICollection<User> response;
-
-        response = await _context.Users.ToListAsync();
-
-
-        return Ok(response);
-
+        return await _userService.GetUsers();
     }
 
-    [HttpGet("{id:int}")]
+    [HttpGet("{id}", Name = "GetUser")]
     public async Task<ActionResult<User>> Get(int id)
     {
-        var entity = await _context.Users.FindAsync(id);
-        if (entity == null)
+        var user = await _userService.GetUser(id);
+
+        if(user == null)
         {
-            return NotFound("No se encontró ningún resultado");
+            return NotFound();
         }
-        return Ok(entity);
+        return Ok(user);
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post(DtoUser request)
+    public async Task<ActionResult<string>> Post(DtoUser request)
     {
-        var entity = new User
-        {
-            Username = request.Username,
-            Email = request.Email,
-            Name = request.Name,
-            Dni = request.Dni,
-            PhoneNumber = request.PhoneNumber,
-            Age = request.Age,
-            Password = request.Password,    
-            Status = true
-        };
-
-        _context.Users.Add(entity);
-        await _context.SaveChangesAsync();
-
-        HttpContext.Response.Headers.Add("location", $"/api/user/{entity.Id}");
-        return Ok();
+        string respuesta= await _userService.CreateUser(request);
+        return Ok(respuesta);
     }
 
-    [HttpPut("{id:int}")]
-    public async Task<ActionResult> Put(int id, DtoUser request)
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult<User>> Delete(int id)
     {
-        var entity = await _context.Users.FindAsync(id);
+        var user=await _userService.GetUser(id);
+        if (user == null)
+        {
+            return NotFound();
+        }
+        await _userService.DeleteUser(user);
+        return NoContent();
+    }
 
-        if (entity == null) return NotFound();
+    [HttpPut("{id}")]
+    public async Task<ActionResult<User>> Put(int id, DtoUser request)
+    {
+        await _userService.UpdateUser(id, request);
+        return NoContent();
+    }
 
-        entity.Username = request.Username;
-        entity.Email = request.Email;
-        entity.Name = request.Name;
-        entity.Age = request.Age;
-        entity.Dni = request.Dni;
-        entity.PhoneNumber = request.PhoneNumber;
-        entity.Password = request.Password;
 
-        _context.Entry(entity).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
+    [HttpGet("login/{usuario}/{contraseña}")]
+    public async Task<ActionResult<string>> login(string usuario,string contraseña)
+    {
+        string respuesta = await _userService.Login(usuario, contraseña);
+        return Ok(respuesta);
+    }
 
-        return Ok(new { Id = id });
+    [HttpGet("recupcontraemail/{usuario}/{email}")]
+    public async Task<ActionResult<string>> recupcontraemail(string usuario, string email)
+    {
+        string respuesta = await _userService.Recupcontraemail(usuario, email);
+        return Ok(respuesta);
+    }
+
+    [HttpGet("recupcontracelu/{usuario}/{numcelu}")]
+    public async Task<ActionResult<string>> recupcontracelu(string usuario, int numcelu)
+    {
+        string respuesta = await _userService.Recupcontracelu(usuario, numcelu);
+        return Ok(respuesta);
     }
 }
 

@@ -1,0 +1,21 @@
+.mat-button::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #704ca7;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.mat-button:hover::after{
+    width: 100%;
+}
+
+.notifications{
+    width: 35px;
+    cursor: pointer;
+}
+
+.notifications:hover{
+    background-color: #eeeeee;
+}

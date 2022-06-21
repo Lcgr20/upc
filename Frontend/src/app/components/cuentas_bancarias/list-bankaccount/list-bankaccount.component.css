@@ -1,0 +1,65 @@
+
+.demo-table {
+    width: 100%;
+  }
+  
+  .mat-column-demo-position {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  
+  .mat-column-demo-name {
+    padding-left: 16px;
+  }
+  
+  .mat-column-demo-weight {
+    font-style: italic;
+  }
+  
+  .mat-column-demo-symbol {
+    width: 32px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .mat-header-cell {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+  }
+  .mat-cell {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 17px;
+  }
+  
+  .bankaccounts-list {
+    min-height: 100%;
+    width: 100%;
+    background-image: url("src\assets\background.png");
+    background-position: top;
+    background-size: cover;
+    position: relative;
+  }
+
+  .acctable {
+    width: 70%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+
+  .acctable h1 {
+    color: #ffffff;
+    font-size: 40px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+  .mat-raised-button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    position: relative;
+    left: 88%;
+    transform: translate(0,-5vh);
+  }

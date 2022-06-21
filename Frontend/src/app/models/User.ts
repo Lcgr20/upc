@@ -7,4 +7,5 @@ export class User {
     dni?: number;
     phoneNumber?:number;
     age?:number;
+    password?:string;
 }

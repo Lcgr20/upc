@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div class="container33">
+        <mat-icon class="iconperfil">account_circle</mat-icon>
+    </div>
+    <h1>Mi Perfil</h1>
+    <div id="envoltura">
+    <div id="contenedor">
+ 
+        <div id="cuerpo">
+            
+            <form id="form-login" action="" autocomplete="off">
+
+                <p><label >Nombre Usuario:</label></p>
+                    <input type="text" id="username" placeholder="" autofocus="" required maxlength="30" readonly="readonly">
+                
+                <p><label >Nombre Completo:</label></p>
+                <div class="container">
+                    <input type="text" id="fullname" placeholder="" autofocus="" required maxlength="50">
+                    <button class="asfas" (click)="fullname_edit()" type="button"><mat-icon>edit</mat-icon></button>
+                </div>
+                
+                <p><label >Email:</label></p>
+                <div class="container">
+                    <input type="email" id="email" placeholder="" autofocus="" required  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+                    <button class="asfas" type="button" (click)="email_edit()"><mat-icon>edit</mat-icon></button>
+                </div>
+
+                <p><label >DNI:</label></p>
+                    <input type="number" id="dni" placeholder="" autofocus="" required maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" readonly>
+
+                <p><label >Número de celular:</label></p>
+                <div class="container">
+                    <input type="number" id="celular" placeholder="" autofocus="" required maxlength="9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    <button class="asfas" type="button" (click)="numero_celu_edit()"><mat-icon>edit</mat-icon></button>
+                </div>
+
+                <p><label >Edad:</label></p>
+                <div class="container">
+                    <input type="number" id="edad" placeholder="" autofocus="" required maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    <button class="asfas" type="button" (click)="edad_edit()"><mat-icon>edit</mat-icon></button>
+                </div>
+
+                <button class="eeee" type="button" (click)="edit_user()">Guardar</button>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>

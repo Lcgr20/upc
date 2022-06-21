@@ -4,6 +4,7 @@ using DivPay.DTO.Response;
 using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
 using DivPay.DTO.Request;
+using DivPay.Services;
 
 namespace DivPay.API.Controller;
 
@@ -12,87 +13,60 @@ namespace DivPay.API.Controller;
 
 public class BankAccountController : ControllerBase
 {
-    private readonly DivPayDBContext _context;
+    private readonly IBankAccountService _bankAccountService;
 
-    public BankAccountController(DivPayDBContext context)
+    public BankAccountController(IBankAccountService bankService)
     {
-        _context = context;
+        this._bankAccountService = bankService;
     }
 
     [HttpGet]
-    public async Task<ActionResult<ICollection<BankAccount>>> Get()
+    public async Task<ActionResult<IEnumerable<BankAccount>>> Get()
     {
-        ICollection<BankAccount> response;
-
-        response = await _context.BankAccounts.ToListAsync();
-
-        return Ok(response);
-
+        return await _bankAccountService.GetBankAccounts();
     }
 
     [HttpGet("{id:int}")]
     public async Task<ActionResult<BankAccount>> Get(int id)
     {
-        var entity = await _context.BankAccounts.FindAsync(id);
-        if (entity == null)
+        var bankAccount = await _bankAccountService.GetBankAccount(id);
+
+        if (bankAccount == null)
         {
-            return NotFound("No se encontró ningún resultado");
+            return NotFound();
         }
-        return Ok(entity);
+        return Ok(bankAccount);
+    }
+
+    [HttpGet("BankAccountsFromUser/{id:int}")]
+    public async Task<ActionResult<IEnumerable<BankAccount>>> GetBankAccountsFromUser(int id)
+    {
+        return await _bankAccountService.GetBankAccountsFromUser(id);
     }
 
     [HttpPost]
     public async Task<ActionResult> Post(DtoBankAccount request)
     {
-        var entity = new BankAccount
-        {
-            Name = request.Name,
-            AccountNumber = request.AccountNumber,  
-            Moneda = request.Moneda,
-            TipoDeCuenta = request.TipoDeCuenta,
-            UserId = request.UserId,
-            Status = true
-        };
-
-        _context.BankAccounts.Add(entity);
-        await _context.SaveChangesAsync();
-
-        HttpContext.Response.Headers.Add("location", $"/api/bankAccount/{entity.Id}");
-        return Ok();
-    }
-
-    [HttpPut("{id:int}")]
-    public async Task<ActionResult> Put(int id, DtoBankAccount request)
-    {
-        var entity = await _context.BankAccounts.FindAsync(id);
-
-        if (entity == null) return NotFound();
-
-        entity.Name = request.Name;
-        entity.AccountNumber = request.AccountNumber;
-        entity.Moneda = request.Moneda;
-        entity.TipoDeCuenta = request.TipoDeCuenta;
-
-        _context.Entry(entity).State = EntityState.Modified;    
-        await _context.SaveChangesAsync();
-
-        return Ok(new { Id = id });
+        string message = await _bankAccountService.CreateBankAccount(request);
+        return Ok(message);
     }
 
     [HttpDelete("{id:int}")]
     public async Task<ActionResult<BankAccount>> Delete(int id)
     {
-        try
+        var bankAccount = await _bankAccountService.GetBankAccount(id);
+        if (bankAccount == null)
         {
-            var entityToDelete = await _context.BankAccounts.FindAsync(id);
-            if (entityToDelete == null) return NotFound();
-            _context.BankAccounts.Remove(entityToDelete);
-            await _context.SaveChangesAsync();
-            return Ok();
+            return NotFound();
         }
-        catch (Exception)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data");
-        }
+        await _bankAccountService.DeleteBankAccount(bankAccount);
+        return NoContent();
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> Put(int id, DtoBankAccount request)
+    {
+        string message = await _bankAccountService.UpdateBankAccount(id, request);
+        return Ok(message);
     }
 }

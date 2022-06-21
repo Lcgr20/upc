@@ -4,6 +4,7 @@ using DivPay.DTO.Response;
 using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
 using DivPay.DTO.Request;
+using DivPay.Services;
 
 namespace DivPay.API.Controller;
 
@@ -12,52 +13,35 @@ namespace DivPay.API.Controller;
 
 public class TransactionController : ControllerBase
 {
-    private readonly DivPayDBContext _context;
+    private readonly ITransactionService _transactionService;
 
-    public TransactionController(DivPayDBContext context)
+    public TransactionController(ITransactionService transactionService)
     {
-        _context = context;
+        _transactionService = transactionService;
     }
 
     [HttpGet]
-    public async Task<ActionResult<ICollection<Transaction>>> Get()
+    public async Task<ActionResult<IEnumerable<Transaction>>> Get()
     {
-        ICollection<Transaction> response;
-
-        response = await _context.Transactions.ToListAsync();
-
-
-        return Ok(response);
-
+        return await _transactionService.GetTransactions();
     }
 
-    [HttpGet("{id:int}")]
+    [HttpGet("{id:int}", Name = "GetTransaction")]
     public async Task<ActionResult<Transaction>> Get(int id)
     {
-        var entity = await _context.Transactions.FindAsync(id);
-        if (entity == null)
+        var transaction = await _transactionService.GetTransaction(id);
+
+        if (transaction == null)
         {
-            return NotFound("No se encontró ningún resultado");
+            return NotFound();
         }
-        return Ok(entity);
+        return Ok(transaction);
     }
 
     [HttpPost]
     public async Task<ActionResult> Post(DtoTransaction request)
     {
-        var entity = new Transaction
-        {
-            SentQuantity = request.SentQuantity,
-            ReceivedQuantity = request.ReceivedQuantity,
-            PaymentRecordId = request.PaymentRecordId,
-            ExchangeRateId = request.ExchangeRateId,    
-            Status = true
-        };
-
-        _context.Transactions.Add(entity);
-        await _context.SaveChangesAsync();
-
-        HttpContext.Response.Headers.Add("location", $"/api/transaction/{entity.Id}");
+        await _transactionService.CreateTransaction(request);
         return Ok();
     }
 }

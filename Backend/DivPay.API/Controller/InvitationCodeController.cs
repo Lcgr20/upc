@@ -4,6 +4,7 @@ using DivPay.DTO.Response;
 using DivPay.Entities;
 using Microsoft.EntityFrameworkCore;
 using DivPay.DTO.Request;
+using DivPay.Services;
 
 namespace DivPay.API.Controller;
 
@@ -12,51 +13,41 @@ namespace DivPay.API.Controller;
 
 public class InvitationCodeController : ControllerBase
 {
-    private readonly DivPayDBContext _context;
+    private readonly IInvitationCodeService _invitationCodeService;
 
-    public InvitationCodeController(DivPayDBContext context)
+    public InvitationCodeController(IInvitationCodeService invitationCodeService)
     {
-        _context = context;
+        _invitationCodeService = invitationCodeService;
     }
 
     [HttpGet]
-    public async Task<ActionResult<ICollection<InvitationCode>>> Get()
+    public async Task<ActionResult<IEnumerable<InvitationCode>>> Get()
     {
-        ICollection<InvitationCode> response;
-
-        response = await _context.InvitationCodes.ToListAsync();
-
-
-        return Ok(response);
-
+        return await _invitationCodeService.GetInvitationCodes();
     }
 
-    [HttpGet("{id:int}")]
+    [HttpGet("{id:int}", Name = "GetInvitationCode")]
     public async Task<ActionResult<InvitationCode>> Get(int id)
     {
-        var entity = await _context.InvitationCodes.FindAsync(id);
-        if (entity == null)
+        var invitationCode = await _invitationCodeService.GetInvitationCode(id);
+
+        if (invitationCode == null)
         {
-            return NotFound("No se encontró ningún resultado");
+            return NotFound();
         }
-        return Ok(entity);
+        return Ok(invitationCode);
+    }
+
+    [HttpGet("InvitationFromUser/{id:int}")]
+    public async Task<ActionResult<InvitationCode>> GetInvitationFromUser(int id)
+    {
+        return await _invitationCodeService.GetInvitationCodeFromUser(id);
     }
 
     [HttpPost]
     public async Task<ActionResult> Post(DtoInvitationCode request)
     {
-        var entity = new InvitationCode
-        {
-            NumInvitados = request.NumInvitados,
-            UserId = request.UserId,
-            InviteCode = request.InviteCode,
-            Status = true
-        };
-
-        _context.InvitationCodes.Add(entity);
-        await _context.SaveChangesAsync();
-
-        HttpContext.Response.Headers.Add("location", $"/api/invitationCode/{entity.Id}");
+        await _invitationCodeService.CreateInvitationCode(request);
         return Ok();
     }
 }

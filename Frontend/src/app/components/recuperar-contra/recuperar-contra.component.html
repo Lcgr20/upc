@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+ 
+    <div id="envoltura">
+        <h1><b>RECUPERAR CONTRASEÑA</b></h1>
+        <div id="contenedor">
+ 
+            
+            <div id="cuerpo">
+                <mat-button-toggle-group #colorToggle="matButtonToggleGroup"
+                           value="primary"
+                           aria-label="Change color"
+                          >
+                <mat-button-toggle value="primary" (click)="correo()"> Correo electrónico </mat-button-toggle>
+                <mat-button-toggle value="accent" (click)="celular()"> Número de teléfono </mat-button-toggle>
+                </mat-button-toggle-group>
+                
+                <form id="form-login" action="" autocomplete="off">
+
+                    <p></p><p></p>
+                    
+					<p><label >Nombre Usuario:</label></p>
+                        <input type="text" id="username" placeholder="Ingresa un Nombre de Usuario" autofocus="" required><p></p>
+
+                    <div *ngIf="boton == 'correo'">
+                        <p><label >Email:</label></p>
+                        <input type="email" id="email" placeholder="Ingrese su Email" autofocus="" required  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"><p></p>
+                    </div>
+
+                    <div *ngIf="boton == 'celular'">
+                        <p><label >Número de celular:</label></p>
+                        <input type="number" id="celular" placeholder="Ingresa su Numero de celular" autofocus="" required maxlength="9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><p></p>
+                    </div>
+
+                    <p></p><p></p><p></p><p></p>
+					<button (click)="recuperar()" type="button">Recuperar contraseña</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+ 
+</html>

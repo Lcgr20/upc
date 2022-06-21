@@ -1,0 +1,43 @@
+<mat-toolbar>
+
+    <input type="image" src="assets/logo.png" width="50" height="40" routerLink="/">
+
+    <button mat-button routerLink="/" class="ms-2">DivPay</button>
+
+    <span class="spacer"></span>
+  
+    <button mat-button routerLink="/" class="ms-2">Nueva Operación</button>
+  
+    <button mat-button routerLink="/tasasDeCambio" class="ms-2">Tasas de cambio</button>
+
+    <button mat-button routerLink="/BankAccount" class="ms-2">Cuentas bancarias</button>
+
+    <button mat-button routerLink="/historial" class="ms-2">Historial</button>
+
+    <button mat-button routerLink="/beneficios" class="ms-2">Beneficios</button>
+
+    <button mat-button routerLink="/ayuda" class="ms-2">Ayuda</button>
+    
+  
+    <button mat-button routerLink="/notificacion" matBadge="2" *ngIf="userid != null">
+        <mat-icon>notifications</mat-icon>
+    </button>
+
+    <div *ngIf="userid == null">
+        <button routerLink="/login">Iniciar sesión</button>
+        <button routerLink="/register">Registrarse</button>
+    </div>
+  
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="userid != null">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/profile">Ver perfil</button>
+      <button mat-menu-item (click)="cerrarsesion()"><mat-icon>logout</mat-icon> Cerrar sesión</button>
+    </mat-menu>
+    
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
+  
