@@ -32,4 +32,10 @@ export class TasasDeCambioService {
   createtasadecambio(exchangrate:ExchangeRate){
     return this.http.post(`${this.baseUrl}/ExchangeRate`,exchangrate, {responseType: 'text'});
   }
+  gettasasdecambio(){
+    return this.http.get<ExchangeRate[]>(`${this.baseUrl}/ExchangeRate`);
+  }
+  gettasadecambio(id:number){
+    return this.http.get<ExchangeRate>(`${this.baseUrl}/ExchangeRate/${id}`);
+  }
 }

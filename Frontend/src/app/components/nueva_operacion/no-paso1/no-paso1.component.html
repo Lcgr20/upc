@@ -74,6 +74,16 @@
                       </div>
                     
                     <div class="accnumber">
+                        <button mat-icon-button [matMenuTriggerFor]="menu4" aria-label="Example icon-button with a menu" class="expansion-button2" type="button">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        </button>
+
+                        <mat-menu #menu4="matMenu">
+                          <ng-template matMenuContent>
+                            <button mat-menu-item *ngFor="let c of cuentasbancarias; let i = index;"><span>{{c.bankName}} - {{c.name}} - {{c.accountNumber}}</span></button>
+                          </ng-template>
+                        </mat-menu>
+
                         <p><label >Número de cuenta:</label></p>
                         <input type="number" id="num_cuenta" autofocus="" required maxlength="14" oninput="javascript: if (this.value.length > this.maxLength ) this.value = this.value.slice(0, this.maxLength);"><p></p>
                     </div>

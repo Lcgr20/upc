@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ExchangeRate } from 'src/app/models/ExchangeRate';
+import { BankAccount } from 'src/app/models/BankAccount';
 import { RateforInternet } from 'src/app/models/RateforInternet';
 import { BankaccountService } from 'src/app/services/bankaccount.service';
 import { CouponService } from 'src/app/services/coupon.service';
@@ -29,6 +29,7 @@ export class NoPaso1Component implements OnInit {
   mon1_cantidad!:any;
   mon2_cantidad!:any;
   userid!:any;
+  cuentasbancarias:any[] = [];
 
   constructor(private tasadecambioService: TasasDeCambioService,private router: Router,private couponservice:CouponService,
     private invitationcodeservice:InvitationcodeService, private bankaccountservice:BankaccountService) { }
@@ -50,6 +51,7 @@ export class NoPaso1Component implements OnInit {
     this.couponnn=document.getElementById("coupoun");
     this.mon1_cantidad=document.getElementById("mon1-cantidad");
     this.mon2_cantidad=document.getElementById("resultadomoneda");
+    this.get_bankaccounts();
   }
 
   bcp_option(){this.bankname.value="BCP";}
@@ -160,6 +162,15 @@ export class NoPaso1Component implements OnInit {
             alert("Si termina esta operación apoyará al que le brindo este código");
           }
         }
+      }
+    });
+  }
+
+  get_bankaccounts(){
+    this.bankaccountservice.getbankaccounts(this.userid).subscribe({
+      next: (data) => {
+        this.cuentasbancarias = data;
+        console.log(this.cuentasbancarias);
       }
     });
   }

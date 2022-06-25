@@ -15,4 +15,7 @@ export class TransactionService {
   createttransaction(transaction:Transaction){
     return this.http.post(`${this.baseUrl}/Transaction`,transaction);
   }
+  gettransctions(){
+    return this.http.get<Transaction[]>(`${this.baseUrl}/Transaction`);
+  }
 }

@@ -1,1 +1,57 @@
-<p>historial-operaciones works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,100;1,300;1,400&family=Nanum+Gothic:wght@400;700;800&family=Open+Sans:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="histpage">
+        
+    </section>
+    <div class="title">
+        <h1>Historial de operaciones</h1>    
+    </div>
+    <div class= "records">
+        <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label class="tab-label">
+                <mat-icon class="example-tab-icon">radio_button_unchecked</mat-icon> En proceso
+              </ng-template>
+              <mat-list>
+                <mat-list-item *ngFor="let i of inprocess_records">
+                    <div mat-line class="p1">
+                        <mat-icon>swap_vert</mat-icon> {{ i[1].sentQuantity }} {{ i[2].currencyA }} &nbsp;&nbsp; <mat-icon>play_arrow</mat-icon> &nbsp;&nbsp; {{ i[1].receivedQuantity }} {{ i[2].currencyB }}
+                    </div>
+                    <div mat-line class="p2">
+                        Realizado en: {{ i[0].paymentDate|slice:8:10 }}/{{ i[0].paymentDate|slice:5:7 }}/{{ i[0].paymentDate|slice:0:4 }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tipo de cambio: {{ i[2].exchangeRateAB }}
+                    </div>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+              </mat-list>
+            </mat-tab>
+          
+            <mat-tab>
+              <ng-template mat-tab-label class="tab-label">
+                <mat-icon class="example-tab-icon">check_circle</mat-icon> Terminadas
+              </ng-template>
+              <mat-list>
+                <mat-list-item *ngFor="let i of finished_records">
+                    <div mat-line class="p1">
+                        <mat-icon>swap_vert</mat-icon> {{ i[1].sentQuantity }} {{ i[2].currencyA }} &nbsp;&nbsp; <mat-icon>play_arrow</mat-icon> &nbsp;&nbsp; {{ i[1].receivedQuantity }} {{ i[2].currencyB }}
+                    </div>
+                    <div mat-line class="p2">
+                        Realizado en: {{ i[0].paymentDate|slice:8:10 }}/{{ i[0].paymentDate|slice:5:7 }}/{{ i[0].paymentDate|slice:0:4 }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tipo de cambio: {{ i[2].exchangeRateAB }}
+                    </div>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+              </mat-list>
+            </mat-tab>
+          </mat-tab-group>   
+    </div>
+    
+</body>
+ 
+</html>
+

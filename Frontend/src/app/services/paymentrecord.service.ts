@@ -15,4 +15,10 @@ export class PaymentrecordService {
   createtpaymentrecord(paymenttrecord:PaymentRecord){
     return this.http.post(`${this.baseUrl}/PaymentRecord`,paymenttrecord, {responseType: 'text'});
   }
+  getpaymentrecordsfromuser(id_user:number){
+    return this.http.get<PaymentRecord[]>(`${this.baseUrl}/PaymentRecord/PaymentRecordsFromUser/${id_user}`);
+  }
+  getpaymentrecords(){
+    return this.http.get<PaymentRecord[]>(`${this.baseUrl}/PaymentRecord`);
+  }
 }
