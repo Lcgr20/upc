@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BankAccount } from 'src/app/models/BankAccount';
+import { ExchangeRate } from 'src/app/models/ExchangeRate';
 import { RateforInternet } from 'src/app/models/RateforInternet';
 import { BankaccountService } from 'src/app/services/bankaccount.service';
 import { CouponService } from 'src/app/services/coupon.service';
@@ -29,12 +30,14 @@ export class NoPaso1Component implements OnInit {
   mon1_cantidad!:any;
   mon2_cantidad!:any;
   userid!:any;
+  codigodeapoyoid!:any;
   cuentasbancarias:any[] = [];
 
   constructor(private tasadecambioService: TasasDeCambioService,private router: Router,private couponservice:CouponService,
     private invitationcodeservice:InvitationcodeService, private bankaccountservice:BankaccountService) { }
 
   ngOnInit(): void {
+    this.codigodeapoyoid="";
     this.userid=localStorage.getItem('userid');
     this.moneda1="PEN";
     this.moneda2="USD";
@@ -106,24 +109,18 @@ export class NoPaso1Component implements OnInit {
       alert("Ingresar el dinero a enviar y darle click en Converir con la moneda que quieras recibir, antes de darle siguiente");
     }
     else{
-
+      alert("Se inició el proceso");
       this.bankaccountservice.getbankaccounts(this.userid).subscribe({
         next: (data) => {
-          var as=true;
-          for (let i = 0; i < data.length; i++) {
-            if(this.accountnumber.value==data[i].accountNumber){
-              as=false;
               localStorage.setItem('banco', this.bankname.value);
               localStorage.setItem('moneda_envias', this.moneda1);
               localStorage.setItem('moneda_recibes', this.moneda2);
               localStorage.setItem('dinero_envias', this.mon1_cantidad.value);
               localStorage.setItem('dinero_recibes', this.mon2_cantidad.value);
               localStorage.setItem('ratio', this.ratio_nosotros.toString());
+              localStorage.setItem('cuponapoyouser', this.codigodeapoyoid);
 
               window.location.href="/nueva-operacion/paso2";
-            }
-          }
-          if(as==true){alert("El número de cuenta ingresado no pertenece al usuario");}
         }
       });
 
@@ -160,6 +157,7 @@ export class NoPaso1Component implements OnInit {
           }
           else{
             alert("Si termina esta operación apoyará al que le brindo este código");
+            this.codigodeapoyoid=data;
           }
         }
       }
@@ -170,9 +168,12 @@ export class NoPaso1Component implements OnInit {
     this.bankaccountservice.getbankaccounts(this.userid).subscribe({
       next: (data) => {
         this.cuentasbancarias = data;
-        console.log(this.cuentasbancarias);
       }
     });
+  }
+
+  a(i:BankAccount){
+    this.accountnumber.value=i.accountNumber?.toString();
   }
 
 }

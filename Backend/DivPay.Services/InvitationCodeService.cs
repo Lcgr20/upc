@@ -55,4 +55,20 @@ public class InvitationCodeService:IInvitationCodeService
             return inviteecode.UserId.ToString();
         }
     }
+    public async Task aumentarnum(int userid)
+    {
+        var inviteecode = _context.InvitationCodes.Where(i => i.UserId == userid).FirstOrDefault();
+        if (inviteecode == null)
+        {
+        }
+        else
+        {
+            if (inviteecode.NumInvitados < 10)
+            {
+                inviteecode.NumInvitados +=1;
+                _context.Entry(inviteecode).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+        }
+    }
 }

@@ -23,4 +23,7 @@ export class InvitationcodeService {
   confirminvitecode(invitationcode:string){
     return this.http.get(`${this.baseUrl}/InvitationCode/confirminvitcode/${invitationcode}`, {responseType: 'text'});
   }
+  aumentarnum(id_user:number,codeinvitation:InvitationCode){
+    return this.http.put(`${this.baseUrl}/InvitationCode/aumentarnuminvi/${id_user}`,codeinvitation)
+  }
 }

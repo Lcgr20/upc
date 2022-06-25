@@ -21,6 +21,7 @@ export class NoPaso2Component implements OnInit {
 
     this.userid=localStorage.getItem('userid');
     this.dinero_recibes=localStorage.getItem('dinero_recibes');
+    this.dinero_recibes=Number(this.dinero_recibes).toFixed(2);
     this.ratio=localStorage.getItem('ratio');
     this.moneda_recibes=localStorage.getItem('moneda_recibes');
     this.moneda_envias=localStorage.getItem('moneda_envias');

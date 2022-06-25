@@ -57,4 +57,11 @@ public class InvitationCodeController : ControllerBase
         string respuesta = await _invitationCodeService.confirrminvitcode(invitecode);
         return Ok(respuesta);
     }
+
+    [HttpPut("aumentarnuminvi/{userid:int}")]
+    public async Task<ActionResult<string>> aumentarnuminvi(int userid, DtoInvitationCode request)
+    {
+        await _invitationCodeService.aumentarnum(userid);
+        return Ok();
+    }
 }

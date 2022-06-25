@@ -14,6 +14,7 @@ import { MatListItem} from '@angular/material/list';
 export class NotificacionComponent implements OnInit {
 
   id_user!:any;
+  // unread_notifications?:Notification[];
   notifications?:Notification[];
   data:any[] = [];
   unread_notifications:any[] = [];
@@ -43,6 +44,8 @@ export class NotificacionComponent implements OnInit {
       },
       error: (e) => console.error(e),
     });
+    
+    
   }
 
   getnotification(id:number) {

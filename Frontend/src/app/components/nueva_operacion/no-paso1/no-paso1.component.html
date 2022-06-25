@@ -18,13 +18,13 @@
                             <mat-icon>keyboard_arrow_down</mat-icon>
                         </button>
                         <mat-menu #menu="matMenu">
-                          <button mat-menu-item (click)="bcp_option()"><span>BCP</span></button>
-                          <button mat-menu-item (click)="interbank_option()"><span>Interbank</span></button>
-                          <button mat-menu-item (click)="bbva_option()"><span>BBVA</span></button>
-                          <button mat-menu-item (click)="scotiabank_option()"><span>Scotiabank</span></button>
-                          <button mat-menu-item (click)="pichincha_option()"><span>Pichincha</span></button>
-                          <button mat-menu-item (click)="falabella_option()"><span>Falabella</span></button>
-                          <button mat-menu-item (click)="ripley_option()"><span>Ripley</span></button>
+                          <button mat-menu-item (click)="bcp_option()" type="button"><span>BCP</span></button>
+                          <button mat-menu-item (click)="interbank_option()" type="button"><span>Interbank</span></button>
+                          <button mat-menu-item (click)="bbva_option()" type="button"><span>BBVA</span></button>
+                          <button mat-menu-item (click)="scotiabank_option()" type="button"><span>Scotiabank</span></button>
+                          <button mat-menu-item (click)="pichincha_option()" type="button"><span>Pichincha</span></button>
+                          <button mat-menu-item (click)="falabella_option()" type="button"><span>Falabella</span></button>
+                          <button mat-menu-item (click)="ripley_option()" type="button"><span>Ripley</span></button>
                         </mat-menu>
                         <p><label >Banco:</label></p>
                         <input type="text" id="banco" autofocus="" required maxlength="40"><p></p>
@@ -38,13 +38,13 @@
                         <mat-icon>keyboard_arrow_down</mat-icon>
                       </button>
                       <mat-menu #menu2="matMenu">
-                        <button mat-menu-item (click)="moned1_sol()">
+                        <button mat-menu-item (click)="moned1_sol()" type="button">
                           <span>Soles</span>
                         </button>
-                        <button mat-menu-item (click)="moned1_dol()">
+                        <button mat-menu-item (click)="moned1_dol()" type="button">
                           <span>Dolares</span>
                         </button>
-                        <button mat-menu-item (click)="moned1_eur()">
+                        <button mat-menu-item (click)="moned1_eur()" type="button">
                           <span>Euros</span>
                         </button>
                       </mat-menu>
@@ -60,27 +60,27 @@
                         <mat-icon>keyboard_arrow_down</mat-icon>
                       </button>
                       <mat-menu #menu3="matMenu">
-                        <button mat-menu-item (click)="moned2_sol()">
+                        <button mat-menu-item (click)="moned2_sol()" type="button">
                           <span>Soles</span>
                         </button>
-                        <button mat-menu-item (click)="moned2_dol()">
+                        <button mat-menu-item (click)="moned2_dol()" type="button">
                           <span>Dolares</span>
                         </button>
-                        <button mat-menu-item (click)="moned2_eur()">
+                        <button mat-menu-item (click)="moned2_eur()" type="button">
                           <span>Euros</span>
                         </button>
                       </mat-menu>
                       <input type="number" class="sinborde" id="resultadomoneda" readonly>
                       </div>
                     
-                    <div class="accnumber">
+                      <div class="accnumber">
                         <button mat-icon-button [matMenuTriggerFor]="menu4" aria-label="Example icon-button with a menu" class="expansion-button2" type="button">
                         <mat-icon>keyboard_arrow_down</mat-icon>
                         </button>
 
                         <mat-menu #menu4="matMenu">
                           <ng-template matMenuContent>
-                            <button mat-menu-item *ngFor="let c of cuentasbancarias; let i = index;"><span>{{c.bankName}} - {{c.name}} - {{c.accountNumber}}</span></button>
+                            <button mat-menu-item *ngFor="let c of cuentasbancarias; let i = index;"><span (click)="a(c)" type="button">{{c.bankName}} - {{c.name}} - {{c.accountNumber}}</span></button>
                           </ng-template>
                         </mat-menu>
 
