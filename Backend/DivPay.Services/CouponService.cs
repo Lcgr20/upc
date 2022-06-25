@@ -49,4 +49,17 @@ public class CouponService:ICouponService
     {
         return await _context.Coupons.Where(c => c.UserId == id).FirstOrDefaultAsync();
     }
+
+    public async Task<string> confirrmcoupon(string copuncodde)
+    {
+        Coupon couponnn = await _context.Coupons.Where(c => c.CouponCode == copuncodde).FirstOrDefaultAsync();
+        if (couponnn == null)
+        {
+            return "No existe";
+        }
+        else
+        {
+            return "existe";
+        }
+    }
 }

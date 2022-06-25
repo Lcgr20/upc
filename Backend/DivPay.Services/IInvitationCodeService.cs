@@ -9,4 +9,5 @@ public interface IInvitationCodeService
     Task<InvitationCode> GetInvitationCode(int id);
     Task<List<InvitationCode>> GetInvitationCodes();
     Task<InvitationCode> GetInvitationCodeFromUser(int id);
+    Task<string> confirrminvitcode(string invitecode);
 }

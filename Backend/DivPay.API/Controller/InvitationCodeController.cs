@@ -50,4 +50,11 @@ public class InvitationCodeController : ControllerBase
         await _invitationCodeService.CreateInvitationCode(request);
         return Ok();
     }
+
+    [HttpGet("confirminvitcode/{invitecode}")]
+    public async Task<ActionResult<string>> confirmcoupon(string invitecode)
+    {
+        string respuesta = await _invitationCodeService.confirrminvitcode(invitecode);
+        return Ok(respuesta);
+    }
 }

@@ -14,7 +14,7 @@ public class PaymentRecordService:IPaymentRecordService
         this._context = context;
     }
 
-    public async Task<PaymentRecord> CreatePaymentRecord(DtoPaymentRecord request)
+    public async Task<string> CreatePaymentRecord(DtoPaymentRecord request)
     {
         var paymentRecord = new PaymentRecord()
         {
@@ -26,7 +26,7 @@ public class PaymentRecordService:IPaymentRecordService
         await _context.PaymentRecords.AddAsync(paymentRecord);
         await _context.SaveChangesAsync();
 
-        return paymentRecord;
+        return paymentRecord.Id.ToString();
     }
 
     public async Task<PaymentRecord> GetPaymentRecord(int id)

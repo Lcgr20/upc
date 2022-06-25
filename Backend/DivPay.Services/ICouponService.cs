@@ -10,4 +10,5 @@ public interface ICouponService
     Task<Coupon> GetCoupon(int id);
     Task<List<Coupon>> GetCoupons();
     Task<Coupon> GetCouponFromUser(int id);
+    Task<string> confirrmcoupon(string copuncodde);
 }

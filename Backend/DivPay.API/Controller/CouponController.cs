@@ -62,4 +62,11 @@ public class CouponController : ControllerBase
         await _couponService.DeleteCoupon(coupon);
         return NoContent();
     }
+
+    [HttpGet("confirmcoupon/{cuponcode}")]
+    public async Task<ActionResult<string>> confirmcoupon(string cuponcode)
+    {
+        string respuesta = await _couponService.confirrmcoupon(cuponcode);
+        return Ok(respuesta);
+    }
 }

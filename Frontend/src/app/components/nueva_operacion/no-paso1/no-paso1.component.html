@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,100;1,300;1,400&family=Nanum+Gothic:wght@400;700;800&family=Open+Sans:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="editpage">    
+    </section>
+    <div id="envoltura" class= "accountdata">
+        <h1><b>Nueva Operación</b></h1>
+                <form id="form-bankaccount" action="" autocomplete="off">
+                    
+                    <div class="bank">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="expansion-button" type="button">
+                            <mat-icon>keyboard_arrow_down</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item (click)="bcp_option()"><span>BCP</span></button>
+                          <button mat-menu-item (click)="interbank_option()"><span>Interbank</span></button>
+                          <button mat-menu-item (click)="bbva_option()"><span>BBVA</span></button>
+                          <button mat-menu-item (click)="scotiabank_option()"><span>Scotiabank</span></button>
+                          <button mat-menu-item (click)="pichincha_option()"><span>Pichincha</span></button>
+                          <button mat-menu-item (click)="falabella_option()"><span>Falabella</span></button>
+                          <button mat-menu-item (click)="ripley_option()"><span>Ripley</span></button>
+                        </mat-menu>
+                        <p><label >Banco:</label></p>
+                        <input type="text" id="banco" autofocus="" required maxlength="40"><p></p>
+                    </div>
+
+                    <p class="envias"><label >Envias:</label></p>
+
+                    <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c14-1">{{moneda1}}
+                        <img mat-card-image id="img1" src="">
+                        <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                      </button>
+                      <mat-menu #menu2="matMenu">
+                        <button mat-menu-item (click)="moned1_sol()">
+                          <span>Soles</span>
+                        </button>
+                        <button mat-menu-item (click)="moned1_dol()">
+                          <span>Dolares</span>
+                        </button>
+                        <button mat-menu-item (click)="moned1_eur()">
+                          <span>Euros</span>
+                        </button>
+                      </mat-menu>
+                      <input type="number" id="mon1-cantidad" placeholder="" autofocus="" required maxlength="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><p></p>
+                      <button class="gfggg" (click)="convertir()" type="button">Convertir</button>
+                    </div>
+
+                    <p class="recibes"><label >Recibes:</label></p>
+
+                    <div _ngcontent-lhs-c15="" class="exchange fx-layout wc-row ng-tns-c15-1">{{moneda2}}
+                        <img mat-card-image id="img2" src="">
+                        <button mat-icon-button [matMenuTriggerFor]="menu3" aria-label="Example icon-button with a menu">
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                      </button>
+                      <mat-menu #menu3="matMenu">
+                        <button mat-menu-item (click)="moned2_sol()">
+                          <span>Soles</span>
+                        </button>
+                        <button mat-menu-item (click)="moned2_dol()">
+                          <span>Dolares</span>
+                        </button>
+                        <button mat-menu-item (click)="moned2_eur()">
+                          <span>Euros</span>
+                        </button>
+                      </mat-menu>
+                      <input type="number" class="sinborde" id="resultadomoneda" readonly>
+                      </div>
+                    
+                    <div class="accnumber">
+                        <p><label >Número de cuenta:</label></p>
+                        <input type="number" id="num_cuenta" autofocus="" required maxlength="14" oninput="javascript: if (this.value.length > this.maxLength ) this.value = this.value.slice(0, this.maxLength);"><p></p>
+                    </div>
+
+                    <div class="Cupon">
+                        <p><label >Cupon:</label></p>
+                        <button (click)="aplicarcupon()" type="button">Aplicar</button><input type="text" id="coupoun" autofocus="" maxlength="40"><p></p>
+                        
+                    </div>
+                    
+                    <div class="safasf">
+                        <button class="save-button"mat-raised-button type="button" routerLink="/">Cancelar</button>
+                    <button class="save-button2"mat-raised-button type="button" (click)="siguienteee()">Siguiente</button>
+                    </div>
+                    
+        
+                </form>
+
+    </div>
+    
+</body>
+ 
+</html>

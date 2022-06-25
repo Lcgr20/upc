@@ -43,4 +43,16 @@ public class InvitationCodeService:IInvitationCodeService
     {
         return await _context.InvitationCodes.ToListAsync();
     }
+    public async Task<string> confirrminvitcode(string invitecode)
+    {
+        InvitationCode inviteecode = await _context.InvitationCodes.Where(i => i.InviteCode == invitecode).FirstOrDefaultAsync();
+        if (inviteecode == null)
+        {
+            return "No existe";
+        }
+        else
+        {
+            return inviteecode.UserId.ToString();
+        }
+    }
 }

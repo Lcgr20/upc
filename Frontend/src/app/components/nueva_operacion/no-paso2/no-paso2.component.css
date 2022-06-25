@@ -1,0 +1,73 @@
+.step2-page {
+    min-height: 100%;
+    width: 100%;
+    background-image: url("src\assets\background.png");
+    background-position: top;
+    background-size: cover;
+    position: relative;
+}
+
+.page-title {
+    width:80%;
+    position: absolute;
+    padding-left: 29%;
+    top: 15%;
+    left: 30%;
+    transform: translate(-40%, 0%);
+}
+
+.account-content {
+    min-width: none;
+    width: 65%;
+    position: absolute;
+    padding-left: 29%;
+    top: 40%;
+    left: 30%;
+    transform: translate(-40%, 0%);
+}
+
+.page-title h1{
+    color: #704ca7;
+    font-size: 40px;
+    font-weight: bolder;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.page-title h2{
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: lighter;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.example-tab-icon {
+    margin-right: 10px;
+}
+
+.mat-list-item{
+    font-size: 20px;
+}
+
+.title {
+    font-family: 'Josefin Sans', sans-serif;
+    color:#fff;
+}
+.description {
+    font-family: 'Josefin Sans', sans-serif;
+    color:rgb(0, 0, 0);
+    font-weight: lighter;
+}
+
+.cancel-button {
+    position: relative;
+    transform: translate(-50%,150%);
+    font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.continue-button {
+    position: relative;
+    transform: translate(100%,150%);
+    font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}

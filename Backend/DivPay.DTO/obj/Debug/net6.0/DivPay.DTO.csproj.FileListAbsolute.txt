@@ -82,3 +82,15 @@ C:\Users\Sergio\Desktop\backend probar\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.dl
 C:\Users\Sergio\Desktop\backend probar\DivPay.DTO\obj\Debug\net6.0\refint\DivPay.DTO.dll
 C:\Users\Sergio\Desktop\backend probar\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.pdb
 C:\Users\Sergio\Desktop\backend probar\DivPay.DTO\obj\Debug\net6.0\ref\DivPay.DTO.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\bin\Debug\net6.0\DivPay.DTO.deps.json
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\bin\Debug\net6.0\DivPay.DTO.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\bin\Debug\net6.0\DivPay.DTO.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.csproj.AssemblyReference.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.AssemblyInfoInputs.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.AssemblyInfo.cs
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.csproj.CoreCompileInputs.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\refint\DivPay.DTO.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\DivPay.DTO.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.DTO\obj\Debug\net6.0\ref\DivPay.DTO.dll
