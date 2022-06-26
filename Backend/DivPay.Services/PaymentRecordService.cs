@@ -43,4 +43,13 @@ public class PaymentRecordService:IPaymentRecordService
     {
         return await _context.PaymentRecords.Where(p => p.UserId == id).ToListAsync();
     }
+
+    public async Task UpdateStatus(int id, DtoPaymentRecord paymentRecord)
+    {
+        var entity = await _context.PaymentRecords.FindAsync(id);
+        entity.PaymentStatus = paymentRecord.PaymentStatus;
+
+        _context.Entry(entity).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+    }
 }

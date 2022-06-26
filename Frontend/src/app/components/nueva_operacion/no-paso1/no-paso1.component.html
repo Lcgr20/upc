@@ -26,7 +26,7 @@
                           <button mat-menu-item (click)="falabella_option()" type="button"><span>Falabella</span></button>
                           <button mat-menu-item (click)="ripley_option()" type="button"><span>Ripley</span></button>
                         </mat-menu>
-                        <p><label >Banco:</label></p>
+                        <p><label >¿Desde qué banco nos envías?:</label></p>
                         <input type="text" id="banco" autofocus="" required maxlength="40"><p></p>
                     </div>
 
@@ -80,16 +80,16 @@
 
                         <mat-menu #menu4="matMenu">
                           <ng-template matMenuContent>
-                            <button mat-menu-item *ngFor="let c of cuentasbancarias; let i = index;"><span (click)="a(c)" type="button">{{c.bankName}} - {{c.name}} - {{c.accountNumber}}</span></button>
+                            <button mat-menu-item *ngFor="let c of cuentasbancarias; let i = index;"><span (click)="a(c)" type="button">{{c.bankName}} - {{c.moneda}} - {{c.accountNumber}}</span></button>
                           </ng-template>
                         </mat-menu>
 
-                        <p><label >Número de cuenta:</label></p>
+                        <p><label >¿En qué cuenta deseas recibir el dinero?</label></p>
                         <input type="number" id="num_cuenta" autofocus="" required maxlength="14" oninput="javascript: if (this.value.length > this.maxLength ) this.value = this.value.slice(0, this.maxLength);"><p></p>
                     </div>
 
                     <div class="Cupon">
-                        <p><label >Cupon:</label></p>
+                        <p><label >¿Tienes un cupón? Introdúcelo</label></p>
                         <button (click)="aplicarcupon()" type="button">Aplicar</button><input type="text" id="coupoun" autofocus="" maxlength="40"><p></p>
                         
                     </div>

@@ -74,6 +74,7 @@ export class NoPaso3Component implements OnInit {
                     this.invitationcodeservice.aumentarnum(Number(this.codigodeapoyoid),invitat).subscribe();
                   }
                   alert("Se realizó la operación de forma correcta");
+                  window.location.href="/historial";
                 }
               );
             }

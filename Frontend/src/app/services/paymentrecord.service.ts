@@ -21,4 +21,7 @@ export class PaymentrecordService {
   getpaymentrecords(){
     return this.http.get<PaymentRecord[]>(`${this.baseUrl}/PaymentRecord`);
   }
+  updatestatus(id:number, paymentrecord:PaymentRecord){
+    return this.http.put(`${this.baseUrl}/PaymentRecord/${id}`, paymentrecord);
+  }
 }

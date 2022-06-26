@@ -19,6 +19,8 @@ export class HistorialOperacionesComponent implements OnInit {
   records?:PaymentRecord[];
   inprocess_records:any[] = [];
   finished_records:any[] = [];
+  record_id!:any;
+  updated_record!:any;
   
   er!:any;
   transactions:any[] = [];
@@ -55,7 +57,7 @@ export class HistorialOperacionesComponent implements OnInit {
               }
             });
           }
-          if(r.paymentStatus == "Terminado")
+          if(r.paymentStatus == "Terminada")
           {
             this.transactionservice.gettransctions().subscribe({
               next: (data) => {
@@ -78,4 +80,15 @@ export class HistorialOperacionesComponent implements OnInit {
       error: (e) => console.error(e),
     });
   }
+
+  updatestatus(){
+    this.updated_record = this.inprocess_records.pop()[0];
+    this.updated_record.paymentStatus = "Terminada"
+    this.paymentrecordservice.updatestatus(this.updated_record.id ,this.updated_record).subscribe()
+    window.location.href="/historial";
+  }
 }
+function record(record: any) {
+  throw new Error('Function not implemented.');
+}
+

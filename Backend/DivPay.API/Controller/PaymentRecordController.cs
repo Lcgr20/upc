@@ -51,4 +51,11 @@ public class PaymentRecordController : ControllerBase
         var idddd = await _paymentRecordService.CreatePaymentRecord(request);
         return idddd;
     }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> UpdateStatus(int id, DtoPaymentRecord paymentRecord)
+    {
+        await _paymentRecordService.UpdateStatus(id, paymentRecord);
+        return NoContent();
+    }
 }
