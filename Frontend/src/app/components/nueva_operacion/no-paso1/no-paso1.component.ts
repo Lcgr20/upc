@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { range } from 'rxjs';
 import { BankAccount } from 'src/app/models/BankAccount';
 import { ExchangeRate } from 'src/app/models/ExchangeRate';
 import { RateforInternet } from 'src/app/models/RateforInternet';
@@ -32,6 +33,9 @@ export class NoPaso1Component implements OnInit {
   userid!:any;
   codigodeapoyoid!:any;
   cuentasbancarias:any[] = [];
+  cuentasbancarias_soles:any[] = [];
+  cuentasbancarias_dolares:any[] = [];
+  cuentasbancarias_euros:any[] = [];
 
   constructor(private tasadecambioService: TasasDeCambioService,private router: Router,private couponservice:CouponService,
     private invitationcodeservice:InvitationcodeService, private bankaccountservice:BankaccountService) { }
@@ -39,6 +43,7 @@ export class NoPaso1Component implements OnInit {
   ngOnInit(): void {
     this.codigodeapoyoid="";
     this.userid=localStorage.getItem('userid');
+    if(this.userid==null){this.router.navigate(['../register']);}
     this.moneda1="PEN";
     this.moneda2="USD";
     this.linksoles="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/300px-Flag_of_Peru.svg.png";
@@ -66,28 +71,49 @@ export class NoPaso1Component implements OnInit {
   ripley_option(){this.bankname="Ripley";}
 
   moned1_sol(){
-    if(this.moneda2=="PEN"){}
+    if(this.moneda2=="PEN"){
+      var aux=this.moneda1;this.moneda1="PEN";this.moneda2=aux;
+      var imgaux=this.img1.src;this.img1.src=this.linksoles;this.img2.src=imgaux;
+    }
     else{this.moneda1="PEN";this.img1.src=this.linksoles;}
   }
   moned1_dol(){
-    if(this.moneda2=="USD"){}
+    if(this.moneda2=="USD"){
+      var aux=this.moneda1;this.moneda1="USD";this.moneda2=aux;
+      var imgaux=this.img1.src;this.img1.src=this.linkdolares;this.img2.src=imgaux;
+    }
     else{this.moneda1="USD";this.img1.src=this.linkdolares;}
   }
   moned1_eur(){
-    if(this.moneda2=="EUR"){}
+    if(this.moneda2=="EUR"){
+      var aux=this.moneda1;this.moneda1="EUR";this.moneda2=aux;
+      var imgaux=this.img1.src;this.img1.src=this.linkeuros;this.img2.src=imgaux;
+    }
     else{this.moneda1="EUR";this.img1.src=this.linkeuros;}
   }
   moned2_sol(){
-    if(this.moneda1=="PEN"){}
+    if(this.moneda1=="PEN"){
+      var aux=this.moneda2;this.moneda2="PEN";this.moneda1=aux;
+      var imgaux=this.img2.src;this.img2.src=this.linksoles;this.img1.src=imgaux;
+    }
     else{this.moneda2="PEN";this.img2.src=this.linksoles;}
+    this.cuentasbancarias=this.cuentasbancarias_soles;
   }
   moned2_dol(){
-    if(this.moneda1=="USD"){}
+    if(this.moneda1=="USD"){
+      var aux=this.moneda2;this.moneda2="USD";this.moneda1=aux;
+      var imgaux=this.img2.src;this.img2.src=this.linkdolares;this.img1.src=imgaux;
+    }
     else{this.moneda2="USD";this.img2.src=this.linkdolares;}
+    this.cuentasbancarias=this.cuentasbancarias_dolares;
   }
   moned2_eur(){
-    if(this.moneda1=="EUR"){}
+    if(this.moneda1=="EUR"){
+      var aux=this.moneda2;this.moneda2="EUR";this.moneda1=aux;
+      var imgaux=this.img2.src;this.img2.src=this.linkeuros;this.img1.src=imgaux;
+    }
     else{this.moneda2="EUR";this.img2.src=this.linkeuros;}
+    this.cuentasbancarias=this.cuentasbancarias_euros;
   }
 
   async convertir(){
@@ -167,7 +193,20 @@ export class NoPaso1Component implements OnInit {
   get_bankaccounts(){
     this.bankaccountservice.getbankaccounts(this.userid).subscribe({
       next: (data) => {
-        this.cuentasbancarias = data;
+        for(var i=0;i<=data.length;i++){
+          var a=new BankAccount();
+          a=data[i];
+          if(a.moneda=="Soles"){
+            this.cuentasbancarias_soles.push(a);
+          }
+          if(a.moneda=="Dólares"){
+            this.cuentasbancarias_dolares.push(a);
+            this.cuentasbancarias=this.cuentasbancarias_dolares;
+          }
+          if(a.moneda=="Euros"){
+            this.cuentasbancarias_euros.push(a);
+          }
+        }
       }
     });
   }

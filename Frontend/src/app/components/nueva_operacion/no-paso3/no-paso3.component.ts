@@ -74,6 +74,12 @@ export class NoPaso3Component implements OnInit {
                     this.invitationcodeservice.aumentarnum(Number(this.codigodeapoyoid),invitat).subscribe();
                   }
                   alert("Se realizó la operación de forma correcta");
+                  localStorage.removeItem('dinero_recibes');
+                  localStorage.removeItem('ratio');
+                  localStorage.removeItem('moneda_recibes');
+                  localStorage.removeItem('moneda_envias');
+                  localStorage.removeItem('dinero_envias');
+                  localStorage.removeItem('banco');
                   window.location.href="/historial";
                 }
               );
