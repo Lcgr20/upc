@@ -25,6 +25,9 @@ import { NotificacionComponent } from './components/notificacion/notificacion.co
 import { RecuperarContraComponent } from './components/recuperar-contra/recuperar-contra.component';
 import { MatButtonToggleGroupHarness } from '@angular/material/button-toggle/testing';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { NoPaso1Component } from './components/nueva_operacion/no-paso1/no-paso1.component';
+import { NoPaso2Component } from './components/nueva_operacion/no-paso2/no-paso2.component';
+import { NoPaso3Component } from './components/nueva_operacion/no-paso3/no-paso3.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     VerBarraDeProgresoComponent,
     CentroAyudaComponent,
     NotificacionComponent,
-    RecuperarContraComponent
+    RecuperarContraComponent,
+    NoPaso1Component,
+    NoPaso2Component,
+    NoPaso3Component
   ],
   imports: [
     BrowserModule,

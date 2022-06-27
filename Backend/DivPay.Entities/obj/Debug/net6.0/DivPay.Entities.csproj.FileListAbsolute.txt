@@ -82,3 +82,15 @@ C:\Users\Sergio\Desktop\backend probar\DivPay.Entities\obj\Debug\net6.0\DivPay.E
 C:\Users\Sergio\Desktop\backend probar\DivPay.Entities\obj\Debug\net6.0\refint\DivPay.Entities.dll
 C:\Users\Sergio\Desktop\backend probar\DivPay.Entities\obj\Debug\net6.0\DivPay.Entities.pdb
 C:\Users\Sergio\Desktop\backend probar\DivPay.Entities\obj\Debug\net6.0\ref\DivPay.Entities.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\bin\Debug\net6.0\DivPay.Entities.deps.json
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\bin\Debug\net6.0\DivPay.Entities.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\bin\Debug\net6.0\DivPay.Entities.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\DivPay.Entities.csproj.AssemblyReference.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\DivPay.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\DivPay.Entities.AssemblyInfoInputs.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\DivPay.Entities.AssemblyInfo.cs
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\DivPay.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\DivPay.Entities.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\refint\DivPay.Entities.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\DivPay.Entities.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Entities\obj\Debug\net6.0\ref\DivPay.Entities.dll

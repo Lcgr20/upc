@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
           }
           else{
             localStorage.setItem('userid', data);
-            //this.router.navigate(['../']);
             window.location.href="";
           }
           

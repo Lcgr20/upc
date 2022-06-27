@@ -14,7 +14,7 @@ public class PaymentRecordService:IPaymentRecordService
         this._context = context;
     }
 
-    public async Task<PaymentRecord> CreatePaymentRecord(DtoPaymentRecord request)
+    public async Task<string> CreatePaymentRecord(DtoPaymentRecord request)
     {
         var paymentRecord = new PaymentRecord()
         {
@@ -26,7 +26,7 @@ public class PaymentRecordService:IPaymentRecordService
         await _context.PaymentRecords.AddAsync(paymentRecord);
         await _context.SaveChangesAsync();
 
-        return paymentRecord;
+        return paymentRecord.Id.ToString();
     }
 
     public async Task<PaymentRecord> GetPaymentRecord(int id)
@@ -42,5 +42,14 @@ public class PaymentRecordService:IPaymentRecordService
     public async Task<List<PaymentRecord>> GetPaymentRecordsFromUser(int id)
     {
         return await _context.PaymentRecords.Where(p => p.UserId == id).ToListAsync();
+    }
+
+    public async Task UpdateStatus(int id, DtoPaymentRecord paymentRecord)
+    {
+        var entity = await _context.PaymentRecords.FindAsync(id);
+        entity.PaymentStatus = paymentRecord.PaymentStatus;
+
+        _context.Entry(entity).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
     }
 }

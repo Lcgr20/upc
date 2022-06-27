@@ -40,9 +40,9 @@ public class ExchangeRateController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post(DtoExchangeRate request)
+    public async Task<ActionResult<string>> Post(DtoExchangeRate request)
     {
-        await _exchangeRateService.CreateExchangeRate(request);
-        return Ok();
+        var idddd=await _exchangeRateService.CreateExchangeRate(request);
+        return idddd;
     }
 }

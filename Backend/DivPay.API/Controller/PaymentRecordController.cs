@@ -46,9 +46,16 @@ public class PaymentRecordController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post(DtoPaymentRecord request)
+    public async Task<ActionResult<string>> Post(DtoPaymentRecord request)
     {
-        await _paymentRecordService.CreatePaymentRecord(request);
-        return Ok();
+        var idddd = await _paymentRecordService.CreatePaymentRecord(request);
+        return idddd;
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> UpdateStatus(int id, DtoPaymentRecord paymentRecord)
+    {
+        await _paymentRecordService.UpdateStatus(id, paymentRecord);
+        return NoContent();
     }
 }

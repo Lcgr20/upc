@@ -69,6 +69,7 @@
     color: #000000;
     font-size: 20px;
     font-weight: lighter;
+    text-align: start;
 }
 
 .mat-expansion-panel-header mat-panel-title:hover {

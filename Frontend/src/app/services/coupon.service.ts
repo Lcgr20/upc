@@ -19,4 +19,8 @@ export class CouponService {
   createcoupon(coupon:Coupon){
     return this.http.post(`${this.baseUrl}/Coupon`,coupon);
   }
+
+  confirmcopun(couponcode:string){
+    return this.http.get(`${this.baseUrl}/Coupon/confirmcoupon/${couponcode}`, {responseType: 'text'});
+  }
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,100;1,300;1,400&family=Nanum+Gothic:wght@400;700;800&family=Open+Sans:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="step2-page">    
+    </section>
+    <div class="page-title">
+        <h1>Realizar una transferencia (Paso 3 de 3) </h1>
+        <h2>Verificar Transferencia: </h2>
+    </div>
+
+    <div class= "account-content">
+        <p class="asd">Luego de terminar la transferencia necesitamos <b>comprobarla con el Banco {{banco}}</b> para
+            poder transferir <b>{{moneda_recibes}}  {{dinero_recibes}}</b> a tu cuenta
+        </p>
+        <br><br>
+
+        <div>
+            <p class="asd"><label >Escriba el número de operación de la transacción bancaria aquí:</label></p><br>
+            <input type="text" id="codverifi" class="codverifi" size="60" autofocus="" required maxlength="14" ><p></p>
+        </div>
+
+        <button class="cancel-button"mat-raised-button type="button" (click)="limpiar()">Cancelar operación</button>
+        <button class="continue-button"mat-raised-button type="button" (click)="creartransaccion()">Verificar pago</button>
+    </div>
+    
+    
+</body>
+ 
+</html>
+

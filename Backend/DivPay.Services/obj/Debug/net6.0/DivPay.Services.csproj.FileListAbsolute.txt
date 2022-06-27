@@ -91,3 +91,41 @@ C:\Users\Sergio\Desktop\backend probar\DivPay.Services\obj\Debug\net6.0\DivPay.S
 C:\Users\Sergio\Desktop\backend probar\DivPay.Services\obj\Debug\net6.0\refint\DivPay.Services.dll
 C:\Users\Sergio\Desktop\backend probar\DivPay.Services\obj\Debug\net6.0\DivPay.Services.pdb
 C:\Users\Sergio\Desktop\backend probar\DivPay.Services\obj\Debug\net6.0\ref\DivPay.Services.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Services.deps.json
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Services.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Services.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.DataAccess.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.DTO.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Entities.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.DataAccess.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.DTO.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Entities.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.csproj.AssemblyReference.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.AssemblyInfoInputs.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.AssemblyInfo.cs
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.csproj.CoreCompileInputs.cache
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.csproj.CopyComplete
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\refint\DivPay.Services.dll
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.pdb
+C:\Users\Sergio\Desktop\upc-main\Backend\DivPay.Services\obj\Debug\net6.0\ref\DivPay.Services.dll
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Services.deps.json
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Services.dll
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Services.pdb
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.DataAccess.dll
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.DTO.dll
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Entities.dll
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.DataAccess.pdb
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.DTO.pdb
+C:\Users\User\Documents\test\Backend\DivPay.Services\bin\Debug\net6.0\DivPay.Entities.pdb
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.csproj.AssemblyReference.cache
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.AssemblyInfoInputs.cache
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.AssemblyInfo.cs
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.csproj.CopyComplete
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.dll
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\refint\DivPay.Services.dll
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\DivPay.Services.pdb
+C:\Users\User\Documents\test\Backend\DivPay.Services\obj\Debug\net6.0\ref\DivPay.Services.dll

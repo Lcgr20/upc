@@ -14,7 +14,7 @@ public class ExchangeRateService:IExchangeRateService
         this._context = context;
     }
 
-    public async Task<ExchangeRate> CreateExchangeRate(DtoExchangeRate request)
+    public async Task<string> CreateExchangeRate(DtoExchangeRate request)
     {
         var exchangeRate = new ExchangeRate()
         {
@@ -26,7 +26,7 @@ public class ExchangeRateService:IExchangeRateService
         await _context.ExchangeRates.AddAsync(exchangeRate);
         await _context.SaveChangesAsync();
 
-        return exchangeRate;
+        return exchangeRate.Id.ToString();
     }
 
     public async Task<ExchangeRate> GetExchangeRate(int id)

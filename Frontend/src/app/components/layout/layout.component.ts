@@ -18,9 +18,11 @@ export class LayoutComponent implements OnInit {
   }
 
   cerrarsesion(){
-    localStorage.removeItem('userid');
-    //this.router.navigate(['../']);
-    window.location.reload();
+    const ok = confirm("¿Estás seguro de que deseas cerrar sesión?");
+    if (ok){
+      localStorage.removeItem('userid');
+      window.location.reload();
+    }
   }
 
 }

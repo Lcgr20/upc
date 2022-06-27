@@ -86,7 +86,7 @@ export class VerBarraDeProgresoComponent implements OnInit {
     this.couponservice.getcoupon(iduser).subscribe({
       next: (data) => {
         this.couponn = data;
-        console.log(this.couponn);
+        alert("tu Cupón: "+this.couponn.couponCode);
       },
       error: (e) => console.error(e),
     });
@@ -109,6 +109,7 @@ export class VerBarraDeProgresoComponent implements OnInit {
 
     this.couponservice.createcoupon(couponnn).subscribe(
       (response) => {
+        alert("tu Cupón: "+cod);
       },
       (_error) => {}
     );
@@ -134,12 +135,11 @@ export class VerBarraDeProgresoComponent implements OnInit {
   }
 
   reclamarcupon(){
-    if(this.numInvitados==10){
+    if(this.numInvitados==0){
       this.getcoupon(this.id_userr);
       if(this.couponn==null){
         this.createecoupon();
         this.createnotification();
-        window.location.href="/notificacion";
       }
     }
     else{

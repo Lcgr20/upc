@@ -11,6 +11,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotificacionComponent } from './components/notificacion/notificacion.component';
+import { NoPaso1Component } from './components/nueva_operacion/no-paso1/no-paso1.component';
+import { NoPaso2Component } from './components/nueva_operacion/no-paso2/no-paso2.component';
+import { NoPaso3Component } from './components/nueva_operacion/no-paso3/no-paso3.component';
 import { ViewProfileComponent } from './components/profile/view-profile/view-profile.component';
 import { RecuperarContraComponent } from './components/recuperar-contra/recuperar-contra.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -34,6 +37,9 @@ const routes: Routes = [
     { path:'beneficios/progreso',component:VerBarraDeProgresoComponent},
     { path:'ayuda',component:CentroAyudaComponent},
     { path:'notificacion',component:NotificacionComponent},
+    { path:'nueva-operacion/paso1',component:NoPaso1Component},
+    { path:'nueva-operacion/paso2',component:NoPaso2Component},
+    { path:'nueva-operacion/paso3',component:NoPaso3Component},
   ]
   },
   

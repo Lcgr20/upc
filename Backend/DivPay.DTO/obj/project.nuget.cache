@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GvYK+RAor6tSANopfOVyGe5pa3aAwwpvflzUvFERMhL5oz/svdrI/ootlORO4f42ipiOZWAsYGibNqQ9TvYKJg==",
+  "dgSpecHash": "8uEQHHwbRqJ4GIEJnY1u3KUCjqBNetP63wmUoOczKFJOErXk+LJkCdVwrRF2D4/2vxQTTQsAZUunltmoTueoKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sergio\\Desktop\\backend probar\\DivPay.DTO\\DivPay.DTO.csproj",
+  "projectFilePath": "C:\\Users\\Sergio\\Desktop\\backend probar\\Backend\\DivPay.DTO\\DivPay.DTO.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

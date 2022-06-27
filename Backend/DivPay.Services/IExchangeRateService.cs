@@ -5,7 +5,7 @@ namespace DivPay.Services;
 
 public interface IExchangeRateService
 {
-    Task<ExchangeRate> CreateExchangeRate(DtoExchangeRate exchangeRate);
+    Task<string> CreateExchangeRate(DtoExchangeRate exchangeRate);
     Task<ExchangeRate> GetExchangeRate(int id);
     Task<List<ExchangeRate>> GetExchangeRates();
 }

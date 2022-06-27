@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { ExchangeRate } from '../models/ExchangeRate';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,15 @@ export class TasasDeCambioService {
     const tasadecambio_json = await tasadecambio.json();
     
     return tasadecambio_json;
+  }
+
+  createtasadecambio(exchangrate:ExchangeRate){
+    return this.http.post(`${this.baseUrl}/ExchangeRate`,exchangrate, {responseType: 'text'});
+  }
+  gettasasdecambio(){
+    return this.http.get<ExchangeRate[]>(`${this.baseUrl}/ExchangeRate`);
+  }
+  gettasadecambio(id:number){
+    return this.http.get<ExchangeRate>(`${this.baseUrl}/ExchangeRate/${id}`);
   }
 }
