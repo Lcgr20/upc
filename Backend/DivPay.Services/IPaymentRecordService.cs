@@ -10,4 +10,5 @@ public interface IPaymentRecordService
     Task<List<PaymentRecord>> GetPaymentRecords();
     Task<List<PaymentRecord>> GetPaymentRecordsFromUser(int id);
     Task UpdateStatus(int id, DtoPaymentRecord paymentRecord);
+    Task DeletePaymentRecord(PaymentRecord paymentRecord);
 }

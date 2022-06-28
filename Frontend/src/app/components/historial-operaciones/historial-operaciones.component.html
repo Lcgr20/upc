@@ -11,7 +11,23 @@
       <button class="update-button"mat-raised-button type="button" (click)="updatestatus()">Terminar operación</button>
     </section>
     <div class="title">
-        <h1>Historial de operaciones</h1>    
+        <h1>Historial de operaciones</h1> 
+        <mat-form-field appearance="fill" placeholder="Angular forms" class="date1" id="date1">
+          <mat-label>Escoge una fecha</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="date1">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="date2" id="date2">
+          <mat-label>Escoge una fecha</mat-label>
+          <input matInput [matDatepicker]="picker2" [(ngModel)]="date2">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <button class="filter-button"mat-raised-button type="button" (click)="filter()">Filtrar</button>
     </div>
     <div class= "records">
         <mat-tab-group>

@@ -23,6 +23,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatListModule} from '@angular/material/list';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms'; 
 @NgModule({
   exports: [
     MatSidenavModule,
@@ -46,8 +49,11 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     MatButtonToggleModule,
     MatProgressBarModule,
     MatListModule,
-    ClipboardModule
+    ClipboardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule
   ],
-  providers: [{provide: MatPaginatorIntl, useClass: MatPaginatorImpl}]
+  providers: [{provide: MatPaginatorIntl , useClass: MatPaginatorImpl}]
 })
 export class MaterialModule {}
