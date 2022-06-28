@@ -21,9 +21,20 @@ public class BankAccountService:IBankAccountService
 
     public async Task<String> CreateBankAccount(DtoBankAccount request)
     {
-        BankAccount ba_example = await _context.BankAccounts.Where(b => b.AccountNumber == request.AccountNumber).FirstOrDefaultAsync();
+        List<BankAccount> ba_examples = await _context.BankAccounts.Where(b => b.AccountNumber == request.AccountNumber).ToListAsync();
 
-        if (ba_example == null)
+        var create = false;
+
+        foreach (var ba in ba_examples)
+        {
+            if (ba.BankName == request.BankName)
+            {
+                create = true;
+                break;
+            }
+        }
+
+        if (create == false)
         {
             var bankAccount = new BankAccount()
             {
@@ -68,8 +79,19 @@ public class BankAccountService:IBankAccountService
 
     public async Task<String> UpdateBankAccount(int id, DtoBankAccount bankAccount)
     {
-        BankAccount ba_example = await _context.BankAccounts.Where(b => b.AccountNumber == bankAccount.AccountNumber).FirstOrDefaultAsync();
-        if (ba_example == null)
+        List<BankAccount> ba_examples = await _context.BankAccounts.Where(b => b.AccountNumber == bankAccount.AccountNumber).ToListAsync();
+
+        var create = false;
+
+        foreach (var ba in ba_examples)
+        {
+            if (ba.BankName == bankAccount.BankName && ba.Id != id)
+            {
+                create = true;
+                break;
+            }
+        }
+        if (create == false)
         {
             var entity = await _context.BankAccounts.FindAsync(id);
             entity.Name = bankAccount.Name;
@@ -84,19 +106,6 @@ public class BankAccountService:IBankAccountService
         }
         else
         {
-            if (ba_example.Id == id)
-            {
-                var entity = await _context.BankAccounts.FindAsync(id);
-                entity.Name = bankAccount.Name;
-                entity.AccountNumber = bankAccount.AccountNumber;
-                entity.BankName = bankAccount.BankName;
-                entity.Moneda = bankAccount.Moneda;
-                entity.TipoDeCuenta = bankAccount.TipoDeCuenta;
-
-                _context.Entry(entity).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-                return "Se realizaron los cambios de forma correcta.";
-            }
             return "Ya existe una cuenta con este número.";
         }
     }

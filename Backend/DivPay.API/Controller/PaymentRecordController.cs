@@ -58,4 +58,16 @@ public class PaymentRecordController : ControllerBase
         await _paymentRecordService.UpdateStatus(id, paymentRecord);
         return NoContent();
     }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult<PaymentRecord>> Delete(int id)
+    {
+        var paymentRecord = await _paymentRecordService.GetPaymentRecord(id);
+        if (paymentRecord == null)
+        {
+            return NotFound();
+        }
+        await _paymentRecordService.DeletePaymentRecord(paymentRecord);
+        return NoContent();
+    }
 }

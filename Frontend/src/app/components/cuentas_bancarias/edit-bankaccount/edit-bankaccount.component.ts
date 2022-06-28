@@ -46,7 +46,7 @@ export class EditBankaccountComponent implements OnInit {
   scotiabank_option(){this.bankname.value="Scotiabank";}
   pichincha_option(){this.bankname.value="Pichincha";}
   falabella_option(){this.bankname.value="Falabella";}
-  ripley_option(){this.bankname="Ripley";}
+  ripley_option(){this.bankname.value="Ripley";}
   pen_option(){this.moneda.value="Soles";}
   usd_option(){this.moneda.value="Dólares";}
   eur_option(){this.moneda.value="Euros";}

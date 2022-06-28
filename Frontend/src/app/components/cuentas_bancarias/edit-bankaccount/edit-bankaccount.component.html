@@ -17,8 +17,8 @@
                             <mat-icon>keyboard_arrow_down</mat-icon>
                         </button>
                         <mat-menu #menu="matMenu">
-                          <button mat-menu-item (click)="ahorro_option()"><span>Ahorro</span></button>
-                          <button mat-menu-item (click)="corriente_option()"><span>Corriente</span></button>
+                          <button mat-menu-item (click)="ahorro_option()" type="button"><span>Ahorro</span></button>
+                          <button mat-menu-item (click)="corriente_option()" type="button"><span>Corriente</span></button>
                         </mat-menu>
                         <p><label >Tipo de cuenta:</label></p>
                         <input type="text" id="tipo_de_cuenta" autofocus="" required maxlength="40"><p></p>
@@ -29,13 +29,13 @@
                             <mat-icon>keyboard_arrow_down</mat-icon>
                         </button>
                         <mat-menu #menu2="matMenu">
-                          <button mat-menu-item (click)="bcp_option()"><span>BCP</span></button>
-                          <button mat-menu-item (click)="interbank_option()"><span>Interbank</span></button>
-                          <button mat-menu-item (click)="bbva_option()"><span>BBVA</span></button>
-                          <button mat-menu-item (click)="scotiabank_option()"><span>Scotiabank</span></button>
-                          <button mat-menu-item (click)="pichincha_option()"><span>Pichincha</span></button>
-                          <button mat-menu-item (click)="falabella_option()"><span>Falabella</span></button>
-                          <button mat-menu-item (click)="ripley_option()"><span>Ripley</span></button>
+                          <button mat-menu-item (click)="bcp_option()" type="button"><span>BCP</span></button>
+                          <button mat-menu-item (click)="interbank_option()" type="button"><span>Interbank</span></button>
+                          <button mat-menu-item (click)="bbva_option()" type="button"><span>BBVA</span></button>
+                          <button mat-menu-item (click)="scotiabank_option()" type="button"><span>Scotiabank</span></button>
+                          <button mat-menu-item (click)="pichincha_option()" type="button"><span>Pichincha</span></button>
+                          <button mat-menu-item (click)="falabella_option()" type="button"><span>Falabella</span></button>
+                          <button mat-menu-item (click)="ripley_option()" type="button"><span>Ripley</span></button>
                         </mat-menu>
                         <p><label >Banco:</label></p>
                         <input type="text" id="banco" autofocus="" required maxlength="40"><p></p>
@@ -46,9 +46,9 @@
                             <mat-icon>keyboard_arrow_down</mat-icon>
                         </button>
                         <mat-menu #menu3="matMenu">
-                          <button mat-menu-item (click)="usd_option()"><span>Dólares</span></button>
-                          <button mat-menu-item (click)="pen_option()"><span>Soles</span></button>
-                          <button mat-menu-item (click)="eur_option()"><span>Euros</span></button>
+                          <button mat-menu-item (click)="usd_option()" type="button"><span>Dólares</span></button>
+                          <button mat-menu-item (click)="pen_option()" type="button"><span>Soles</span></button>
+                          <button mat-menu-item (click)="eur_option()" type="button"><span>Euros</span></button>
                         </mat-menu>
                         <p><label >Moneda:</label></p>
                         <input type="text" id="moneda" autofocus="" required maxlength="40"><p></p>

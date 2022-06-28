@@ -29,6 +29,12 @@ public class PaymentRecordService:IPaymentRecordService
         return paymentRecord.Id.ToString();
     }
 
+    public async Task DeletePaymentRecord(PaymentRecord paymentRecord)
+    {
+        _context.PaymentRecords.Remove(paymentRecord);
+        await _context.SaveChangesAsync();
+    }
+
     public async Task<PaymentRecord> GetPaymentRecord(int id)
     {
         return await _context.PaymentRecords.Where(p => p.Id == id).FirstOrDefaultAsync();
